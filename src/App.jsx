@@ -1,10 +1,12 @@
+import Users from "./pages/Users"
 
 function App() {
 
   return (
-    <div>
-      
-    </div>
+      <Routes>
+        <Route path='/users' element={<Users/>}/>
+      </Routes>
+
   )
 }
 
