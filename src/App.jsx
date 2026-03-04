@@ -1,5 +1,9 @@
 import Main from "./pages/Main"
 import Users from "./pages/Users"
+import axios from "axios"
+
+
+
 function App() {
 
   return (
@@ -8,6 +12,7 @@ function App() {
       <Routes>
         <Route path='/' element={Users}/>
       </Routes>
+
     </div>
   )
 }
