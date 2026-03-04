@@ -5,6 +5,7 @@ function Headers() {
     <div>
         <ul className='flex'>
            <Link to={"/Users"}>Users</Link>
+           <Link to={"/Main"}>Main</Link>
             <li>next</li>
             <li>next</li>
             <li>next</li>
