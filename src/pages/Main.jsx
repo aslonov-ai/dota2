@@ -191,7 +191,7 @@ const MediaGallery = ({ items }) => {
   const tripled = [...items, ...items, ...items];
 
   useEffect(() => {
-    const SPEED = 0.6; // px per frame
+    const SPEED = 0.6; 
     const animate = () => {
       const track = trackRef.current;
       if (track && !pauseRef.current) {
