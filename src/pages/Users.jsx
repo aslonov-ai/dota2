@@ -38,9 +38,7 @@ function Users() {
             <div class="flex justify-center relative  mb-4">
               <img
                 onClick={() => {
-                  console.log(console.log(player.account_id));
-                  localStorage.setItem("arr", JSON.stringify(player.account_id));
-                  console.log(localStorage.getItem("arr"));
+                  localStorage.setItem("playerId", JSON.stringify(player.account_id));
                   navigate("/userinfos");
                 }}
                 className="rounded-full border-3 border-amber-400/60 w-40"
