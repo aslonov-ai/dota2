@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import video from "../../public/images/dota_montage_02.mp4";
-
+import Headers from "../components/Headers";
 
 const API_BASE_URL = "https://your-api.com/api"; // ← API URL shu yerga
 
@@ -41,7 +41,7 @@ const FALLBACK_NEWS = [
     id: 1, tag: "PATCH NOTES", title: "The International",
     desc: "Watch highlights →",
     image_url: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/home/bg-augment.jpg",
-    video_url: "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_02.mp4",
+    video_url: "https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/abilities/muerta/muerta_the_calling.mp4",
   },
   {
     id: 2, tag: "ESPORTS", title: "Epic Gameplay",
@@ -53,7 +53,7 @@ const FALLBACK_NEWS = [
     id: 3, tag: "NEW HERO", title: "Best Moments",
     desc: "Watch highlights →",
     image_url: "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/home/social/social_05.jpg",
-    video_url: "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_02.mp4",
+    video_url: "https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/abilities/viper/viper_viper_strike.mp4",
   },
 ];
 
@@ -73,10 +73,10 @@ const SLIDESHOW_IMAGES = [
 ];
 
 const MEDIA_GALLERY = [
+  { type:"video", src:"https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/abilities/juggernaut/juggernaut_omni_slash.mp4", poster:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/home/bg-augment.jpg",          title:"Epic Montage",        tag:"VIDEO"    },
+  { type:"video", src:"https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/abilities/tidehunter/tidehunter_ravage.mp4", poster:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/home/bg-augment.jpg",          title:"Epic Montage",        tag:"VIDEO"    },
   { type:"video", src:"https://cdn.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_02.mp4", poster:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/home/bg-augment.jpg",          title:"Epic Montage",        tag:"VIDEO"    },
-  { type:"video", src:"https://cdn.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_02.mp4", poster:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/home/bg-augment.jpg",          title:"Epic Montage",        tag:"VIDEO"    },
-  { type:"video", src:"https://cdn.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_02.mp4", poster:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/home/bg-augment.jpg",          title:"Epic Montage",        tag:"VIDEO"    },
-  { type:"video", src:"https://cdn.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_02.mp4", poster:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/home/ti/ti10/bg_promo_ti.jpg", title:"Team Fights",         tag:"GAMEPLAY" },
+  { type:"video", src:"https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/abilities/witch_doctor/witch_doctor_death_ward.mp4", poster:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/home/ti/ti10/bg_promo_ti.jpg", title:"Team Fights",         tag:"GAMEPLAY" },
   { type:"video", src:"https://cdn.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_02.mp4", poster:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/home/bg-augment.jpg",          title:"Epic Montage",        tag:"VIDEO"    },
   { type:"video", src:"https://cdn.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_02.mp4", poster:"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/home/bg-augment.jpg",          title:"New Season",          tag:"VIDEO"    },
 ];
@@ -288,7 +288,7 @@ const Cards = ({ cards }) => (
             <img src={card.image_url} alt={card.title} className="w-full h-full object-cover" />
           )}
           <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-            <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center text-white text-2xl">▶</div>
+            <div className="w-16 h-16 rounded-full  flex items-center justify-center text-white text-2xl"></div>
           </div>
           {card.tag && (
             <span className="absolute top-3 left-3 text-xs font-bold tracking-widest uppercase bg-red-600 text-white px-2 py-1">
@@ -317,15 +317,16 @@ const HeroSection = ({ news }) => (
     <header className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between p-6 text-white">
       <div className="flex items-center gap-2">
         <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/logo.png" className="h-10" alt="dota2" />
-        <span className="text-2xl font-bold tracking-wider">DOTA 2</span>
+        {/* <span className="text-2xl font-bold tracking-wider">DOTA 2</span> */}
       </div>
       <nav className="hidden md:flex gap-8 text-lg">
-        <a href="/Main"  className="hover:text-red-400 transition">Game</a>
+        <Headers/>
+        {/* <a href="/Main"  className="hover:text-red-400 transition">Game</a>
         <a href="/Users" className="hover:text-red-400 transition">Heroes</a>
         <a href="#"      className="hover:text-red-400 transition">News</a>
-        <a href="#"      className="hover:text-red-400 transition">Esports</a>
+        <a href="#"      className="hover:text-red-400 transition">Esports</a> */}
       </nav>
-      <button className="bg-red-600 px-6 py-2 rounded-full hover:bg-red-700 transition">Play Free</button>
+      {/* <button className="bg-red-600 px-6 py-2 rounded-full hover:bg-red-700 transition">Play Free</button> */}
     </header>
 
     <div className="relative z-20 flex items-center h-full text-white px-4">
