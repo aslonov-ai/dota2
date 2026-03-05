@@ -1,131 +1,105 @@
 // Main.jsx
 import React, { useEffect, useRef } from 'react';
-// import { video } from 'framer-motion/client';
+import { video } from 'framer-motion/client';
 
 const heroes = [
-  'antimage',
-  'axe',
-  'bane',
-  'bloodseeker',
-  'crystal_maiden',
-  'drow_ranger',
-  'earthshaker',
-  'juggernaut',
-  'mirana',
-  'pudge',
-  'shadow_fiend',
-  'sniper',
-  'storm_spirit',
-  'sven',
-  'tiny',
-  'vengefulspirit',
-  'windrunner',
-  'zeus',
-  'invoker',
-  'phantom_assassin',
+  "antimage","axe","bane","bloodseeker","crystal_maiden",
+  "drow_ranger","earthshaker","juggernaut","mirana","pudge",
+  "shadow_fiend","sniper","storm_spirit","sven","tiny",
+  "vengefulspirit","windrunner","zeus","invoker","phantom_assassin"
 ];
 
-const useScrollReveal = (options = {}) => {
+
+// SCROLL REVEAL HOOK
+const useScrollReveal = () => {
   const ref = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
+          entry.target.classList.add("opacity-100","translate-y-0");
         }
       },
-      { threshold: 0.1, ...options }
+      { threshold: 0.2 }
     );
 
     if (ref.current) observer.observe(ref.current);
+
     return () => observer.disconnect();
-  }, [options]);
+  }, []);
 
   return ref;
 };
 
-const Background = () => {
-  const bgHeroes = heroes.slice(0, 12);
-  return (
-    <div className="fixed inset-0 -z-10 overflow-hidden opacity-20 pointer-events-none">
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-transparent to-gray-900"></div>
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 p-4 rotate-12 scale-110">
-        {bgHeroes.map((hero) => (
-          <img
-            key={hero}
-            src={`https://cdn.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_02.mp4`}
-            alt={hero}
-            className="w-full h-auto object-cover opacity-30 grayscale"
-            loading="lazy"
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
 
 const cardsData = [
   {
-    id: 1,
-    title: 'The International 2024',
-    image:
-      "https://cdn.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_webm.webm",
+    id:1,
+    title:"The International",
+    video:"https://cdn.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_02.mp4"
   },
   {
-    id: 2,
-    title: 'New Hero: Ringmaster',
-    image:
-      'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ringmaster.png',
+    id:2,
+    title:"Epic Gameplay",
+    video:"https://cdn.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_02.mp4"
   },
   {
-    id: 3,
-    title: 'Crownfall Act IV',
-    image:
-      'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/events/crownfall/act4_social.jpg',
-  },
+    id:3,
+    title:"Best Moments",
+    video:"https://cdn.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_02.mp4"
+  }
 ];
+
 
 const Cards = () => {
   return (
     <div className="flex flex-col md:flex-row justify-center gap-6 max-w-6xl mx-auto">
-      {cardsData.map((card) => (
+
+      {cardsData.map((card)=>(
         <div
           key={card.id}
-          className="group relative bg-gray-900/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border border-gray-700 hover:border-red-500 transition-all duration-300 transform hover:-translate-y-2"
+          className="group relative bg-gray-900/80 backdrop-blur-sm rounded-2xl  shadow-2xl border border-gray-700 transition transform hover:-translate-y-2"
         >
-          <div className="relative h-48 md:h-56 overflow-hidden">
-            <img
-              src={card.image}
-              alt={card.title}
-              className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-            />
+
+          <div className="relative h-48 md:h-56">
+
+            <video
+              autoPlay
+              loop
+              muted
+              className="w-full h-full object-cover"
+            >
+              <source src={card.video} type="video/mp4"/>
+            </video>
+
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
               <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
+                
               </div>
             </div>
+
           </div>
+
           <div className="p-4">
             <h3 className="text-white text-xl font-bold">{card.title}</h3>
             <p className="text-gray-400 text-sm mt-1">Watch highlights →</p>
           </div>
+
         </div>
       ))}
+
     </div>
   );
 };
 
+
+
+// HERO SECTION
 const Hero = () => {
   return (
-    <div className="relative h-screen w-full overflow-hidden">
-      {/* Video fon */}
+    <section className="relative h-screen w-full overflow-hidden">
+
       <video
         autoPlay
         loop
@@ -133,162 +107,183 @@ const Hero = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source
-          src="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/heroes_panorama_1080p.mp4"
-          type="video/mp4"
-        />
-        Your browser does not support the video tag.
+        <source src={video} type="video/mp4"/>
       </video>
 
-      <div className="absolute inset-0 bg-black/40"></div>
+      {/* OVERLAY */}
+      <div className="absolute inset-0 bg-black/50"></div>
 
-      <header className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between p-6 text-white">
+
+      {/* HEADER */}
+      <header className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between p-6 text-white">
+
         <div className="flex items-center gap-2">
           <img
             src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/logo.png"
-            alt="Dota 2"
             className="h-10"
           />
-          <span className="text-2xl font-bold tracking-wider">DOTA 2</span>
+          <span className="text-2xl font-bold tracking-wider">
+            DOTA 2
+          </span>
         </div>
+
         <nav className="hidden md:flex gap-8 text-lg">
-          <a href="#" className="hover:text-red-400 transition">
-            Game
-          </a>
-          <a href="#" className="hover:text-red-400 transition">
-            Heroes
-          </a>
-          <a href="#" className="hover:text-red-400 transition">
-            News
-          </a>
-          <a href="#" className="hover:text-red-400 transition">
-            Esports
-          </a>
+          <a href={"/Main"} className="hover:text-red-400">Game</a>
+          <a href={"/Users"} className="hover:text-red-400">Heroes</a>
+          <a href="#" className="hover:text-red-400">News</a>
+          <a href="#" className="hover:text-red-400">Esports</a>
         </nav>
-        <button className="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-full font-semibold transition">
+
+        <button className="bg-red-600 px-6 py-2 rounded-full hover:bg-red-700">
           Play Free
         </button>
+
       </header>
 
-      {/* Cards (pastki qism) */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 pb-10 px-4">
-        <Cards />
+
+      {/* TEXT */}
+      <div className="relative z-20 flex items-center justify-center h-full text-center text-white px-4">
+
+        <div>
+          <h1 className="text-6xl md:text-7xl font-bold mb-4">
+            Welcome to Dota 2
+          </h1>
+
+          <p className="text-xl text-gray-300">
+            Enter the battlefield and choose your hero
+          </p>
+        </div>
+
       </div>
-    </div>
+
+
+      {/* CARDS */}
+      <div className="absolute bottom-0 left-0 right-0 z-30 pb-10 px-4">
+        <Cards/>
+      </div>
+
+    </section>
   );
 };
 
+
+
 const TextSection = () => {
+
   const ref1 = useScrollReveal();
   const ref2 = useScrollReveal();
   const ref3 = useScrollReveal();
 
   return (
+
     <section className="py-32 px-4 text-white max-w-4xl mx-auto">
-      <div ref={ref1} className="reveal mb-24">
-        <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-red-500 to-orange-400 bg-clip-text text-transparent">
+
+      <div
+        ref={ref1}
+        className="opacity-0 translate-y-10 transition duration-700 mb-24"
+      >
+        <h2 className="text-5xl font-bold mb-6 text-red-500">
           The Battle Begins
         </h2>
-        <p className="text-xl text-gray-300 leading-relaxed">
-          Dota 2 is a multiplayer online battle arena (MOBA) game where two
-          teams of five players compete to destroy the enemy's Ancient. With
-          over 120 heroes, each match is a unique strategic experience.
+
+        <p className="text-xl text-gray-300">
+          Two teams of five players battle to destroy the enemy Ancient.
         </p>
       </div>
 
-      <div ref={ref2} className="reveal mb-24">
+
+      <div
+        ref={ref2}
+        className="opacity-0 translate-y-10 transition duration-700 mb-24"
+      >
         <h2 className="text-4xl font-bold mb-4 text-red-400">
           Choose Your Hero
         </h2>
-        <p className="text-lg text-gray-300 leading-relaxed">
-          From powerful mages to agile assassins, every hero offers a distinct
-          playstyle. Master your favorite or adapt to the ever‑changing meta.
+
+        <p className="text-lg text-gray-300">
+          Every hero has unique skills and abilities.
         </p>
       </div>
 
-      <div ref={ref3} className="reveal">
+
+      <div
+        ref={ref3}
+        className="opacity-0 translate-y-10 transition duration-700"
+      >
         <h2 className="text-4xl font-bold mb-4 text-red-400">
           Join the Community
         </h2>
-        <p className="text-lg text-gray-300 leading-relaxed">
-          Millions of players worldwide. Watch tournaments, follow pros, and
-          become part of the biggest esports scene on the planet.
+
+        <p className="text-lg text-gray-300">
+          Millions of players around the world play every day.
         </p>
       </div>
+
     </section>
   );
 };
 
+
+
+// HERO CAROUSEL
 const Carousel = () => {
+
   const scrollRef = useRef(null);
 
-  const scroll = (direction) => {
-    if (scrollRef.current) {
-      const { current } = scrollRef;
-      const scrollAmount = 900;
-      current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth',
-      });
-    }
+  const scroll = (dir)=>{
+    const scrollAmount = 800;
+
+    scrollRef.current.scrollBy({
+      left: dir === "left" ? -scrollAmount : scrollAmount,
+      behavior:"smooth"
+    });
   };
 
-  return (
-    <section className="py-20 px-4">
-      <h2 className="text-4xl font-bold text-center text-white mb-12">
-        HERO GALLERY
-      </h2>
-      <div className="relative max-w-7xl mx-auto">
-        <button
-          onClick={() => scroll('left')}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-red-600 text-white p-3 rounded-full backdrop-blur-sm transition"
-        >
-          ←
-        </button>
-        <button
-          onClick={() => scroll('right')}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-red-600 text-white p-3 rounded-full backdrop-blur-sm transition"
-        >
-          →
-        </button>
+  return(
 
-        <div
-          ref={scrollRef}
-          className="flex overflow-x-auto gap-6 pb-4 scrollbar-hide scroll-smooth"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-          {heroes.map((hero) => (
-            <div
-              key={hero}
-              className="flex-shrink-0 w-48 bg-gray-800/60 backdrop-blur-sm rounded-2xl p-4 border border-gray-700 hover:border-red-500 transition group"
-            >
-              <img
-                src={`https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${hero}.png`}
-                alt={hero}
-                className="w-full h-40 object-contain group-hover:scale-105 transition duration-300"
-              />
-              <p className="text-center text-white mt-3 font-semibold capitalize">
-                {hero.replace('_', ' ')}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <section className="bg-black py-20 overflow-hidden">
+
+<h2 className="text-white text-4xl text-center mb-10 font-bold">
+Heroes
+</h2>
+
+<div
+ref={scrollRef}
+className="flex gap-4 overflow-x-scroll scrollbar-hide px-10"
+>
+
+{heroes.concat(heroes).map((hero,i)=>(
+
+<img
+key={i}
+src={`https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${hero}.png`}
+className="h-28 min-w-[180px] object-cover hover:scale-110 transition duration-300"
+/>
+
+))}
+
+</div>
+
+</section>
   );
 };
+
+
+
 
 const Main = () => {
   return (
-    <>
-      <Background />
-      <main className="relative z-10">
-        <Hero />
-        <TextSection />
-        <Carousel />
-        <div className="h-32"></div> {/* Scroll uchun qo'shimcha bo'sh joy */}
-      </main>
-    </>
+    <main className="bg-gray-900">
+
+      <Hero/>
+
+      <TextSection/>
+
+      <Carousel/>
+
+      <div className="h-32"></div>
+
+    </main>
   );
 };
 
