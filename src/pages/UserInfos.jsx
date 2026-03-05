@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 
 function UserInfos() {
+    let arr=JSON.parse(localStorage.getItem(arr))
+    console.log(arr);
+    
   return (
    <div className="bg-[#212121] min-h-screen py-20" >
      <div className="lg:max-w-5xl md:max-w-2xl max-w-2xs mx-auto relative h-[580px]">

@@ -47,14 +47,14 @@ const Headers = () => {
       >
 
         <Link to="/" className="flex items-center gap-2 mr-7 flex-shrink-0">
-          {/* <img
+          <img
             src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/global/dota2_logo_symbol.png"
             alt="Dota 2"
             className="w-8 h-8"
           />
           <span className="text-xl font-black tracking-widest text-[#c8d6e5]">
             DOTA 2
-          </span> */}
+          </span>
         </Link>
 
         {/* NAV */}
