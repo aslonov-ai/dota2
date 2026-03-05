@@ -1,6 +1,6 @@
 import axios from "axios";
-import "./User.css";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Users() {
   const [players, setPlayers] = useState([]);
@@ -21,7 +21,7 @@ function Users() {
     <div className="bg-[#212121] h-full">
       <div className="grid lg:grid-cols-4 gap-8 md:grid-cols-2 lg:max-w-7xl md:max-w-2xl mx-auto p-4">
         {players.map((player, index) => (
-          <div class="relative rounded-2xl border border-yellow-500/70 bg-gradient-to-br from-amber-900/90 via-slate-900 to-emerald-900/90 hover:shadow-[0_0_40px_rgba(250,204,21,0.35)] p-4 max-w-sm mx-auto overflow-hidden">
+          <Link to={'/userinfos'} class="relative rounded-2xl border border-yellow-500/70 bg-gradient-to-br from-amber-900/90 via-slate-900 to-emerald-900/90 hover:shadow-[0_0_40px_rgba(250,204,21,0.35)] p-4 max-w-sm mx-auto overflow-hidden">
             <div class="absolute -right-10 top-6 rotate-45 bg-yellow-500 text-black text-xs font-bold tracking-wide px-10 py-1 shadow-lg">
               TOP PLAYERS
             </div>
@@ -97,7 +97,7 @@ function Users() {
             <div class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
