@@ -1,14 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import video from "../../public/images/dota_montage_02.mp4";
 
-
-
-
 const heroes = [
   "antimage","axe","bane","bloodseeker","crystal_maiden",
   "drow_ranger","earthshaker","juggernaut","mirana","pudge",
-  "shadow_fiend","sniper","storm_spirit","sven","tiny",
-  "vengefulspirit","windrunner","zeus","invoker","phantom_assassin"
+  "sniper","storm_spirit","sven","tiny",
+  "vengefulspirit","windrunner","invoker","phantom_assassin","drow_ranger","crystal_maiden","phantom_assassin","bloodseeker",
+  ,"tiny",
 ];
 
 
@@ -54,6 +52,7 @@ const cardsData = [
 ];
 
 
+// CARDS COMPONENT
 const Cards = () => {
   return (
     <div className="flex flex-col md:flex-row justify-center gap-6 max-w-6xl mx-auto">
@@ -144,23 +143,21 @@ const Hero = () => {
 
 
       {/* TEXT */}
-      <div className="relative z-20 flex items-center justify-center h-full text-center text-white px-4">
+      <div className="relative z-20 flex items-center  h-full  text-white px-4">
 
         <div>
-          <h1 className="text-6xl md:text-7xl font-bold mb-4">
-            Welcome to Dota 2
+          <h1 className="text-6xl md:text-7xl font-bold mb-44">
+            «Современный <br /> многопользовательский <br /> шедевр»
           </h1>
 
           <p className="text-xl text-gray-300">
-            Enter the battlefield and choose your hero
           </p>
         </div>
 
-      </div>
+      </div><br /><br />
 
 
-      {/* CARDS */}
-      <div className="absolute bottom-0 left-0 right-0 z-30 pb-10 px-4">
+      <div className="absolute bottom-0 left-0 right-0 z-30 pb-0 mt-39 px-4">
         <Cards/>
       </div>
 
@@ -184,16 +181,16 @@ const TextSection = () => {
         ref={ref1}
         className="opacity-0 translate-y-10 transition duration-700 mb-24"
       >
-        <h2 className="text-5xl font-bold mb-6 text-red-500">
+        <h2 className="text-5xl font-bold mb-6 text-red-500 lg:text-center">
           The Battle Begins
         </h2>
 
-        <p className="text-xl text-gray-300">
+        <p className="text-xl text-gray-300 lg:text-center">
           Two teams of five players battle to destroy the enemy Ancient.
         </p>
       </div>
 
-
+   <div className="lg:flex justify-between">
       <div
         ref={ref2}
         className="opacity-0 translate-y-10 transition duration-700 mb-24"
@@ -220,7 +217,7 @@ const TextSection = () => {
           Millions of players around the world play every day.
         </p>
       </div>
-
+</div>
     </section>
   );
 };
@@ -243,30 +240,57 @@ const Carousel = () => {
 
   return(
 
-    <section className="bg-black py-20 overflow-hidden">
+    <section className="py-20 px-4">
 
-<h2 className="text-white text-4xl text-center mb-10 font-bold">
-Heroes
-</h2>
+      <h2 className="text-4xl font-bold text-center text-white mb-12">
+        HERO GALLERY
+      </h2>
 
-<div
-ref={scrollRef}
-className="flex gap-4 overflow-x-scroll scrollbar-hide px-10"
->
+      <div className="relative max-w-7xl mx-auto">
 
-{heroes.concat(heroes).map((hero,i)=>(
+        <button
+          onClick={()=>scroll("left")}
+          className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full"
+        >
+          ←
+        </button>
 
-<img
-key={i}
-src={`https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${hero}.png`}
-className="h-28 min-w-[180px] object-cover hover:scale-110 transition duration-300"
-/>
+        <button
+          onClick={()=>scroll("right")}
+          className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full"
+        >
+          →
+        </button>
 
-))}
 
-</div>
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto gap-6 pb-4 scroll-smooth"
+        >
 
-</section>
+          {heroes.map(hero=>(
+            <div
+              key={hero}
+              className="flex-shrink-0  w-48 bg-gray-800/60 rounded-2xl p-4 border border-gray-700 hover:border-red-500 transition"
+            >
+
+              <img
+                src={`https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${hero}.png`}
+                className="w-full h-40 object-contain"
+              />
+
+              <p className="text-center text-white mt-3 capitalize">
+                {hero.replace("_"," ")}
+              </p>
+
+            </div>
+          ))}
+
+        </div>
+
+      </div>
+
+    </section>
   );
 };
 
