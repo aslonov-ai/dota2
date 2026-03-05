@@ -1,6 +1,6 @@
 // Main.jsx
 import React, { useEffect, useRef } from 'react';
-import { video } from 'framer-motion/client';
+// import { video } from 'framer-motion/client';
 
 const heroes = [
   'antimage',
