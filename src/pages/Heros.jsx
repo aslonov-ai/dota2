@@ -1,11 +1,5 @@
-<<<<<<< HEAD
 import React from 'react'
 
-function Heros() {
-  return (
-    <div>Heros</div>
-  )
-=======
 import "./StyleWerp.css"
 import axios from "axios"
 
@@ -59,7 +53,6 @@ function Heros() {
             </div>
         </div>
     )
->>>>>>> 75c0438dd8008e71362e021dda6ba8475600dfe0
 }
 
 export default Heros
