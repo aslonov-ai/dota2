@@ -1,31 +1,15 @@
-<<<<<<< HEAD
-import Users from "./pages/Users"
-=======
-import Main from "./pages/Main"
-import Users from "./pages/Users"
-import axios from "axios"
-
-
->>>>>>> 3841a379701c9d20b30beb3f1780e410bdcb2ab7
+import Users from "./pages/Users";
+import Main from "./pages/Main";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-
   return (
-<<<<<<< HEAD
-      <Routes>
-        <Route path='/users' element={<Users/>}/>
-      </Routes>
-
-=======
-    <div>
-      <Routes>
-        <Route path='/' element={Users}/>
-        <Route path='/Main' element={Main}/>
-      </Routes>
-
-    </div>
->>>>>>> 3841a379701c9d20b30beb3f1780e410bdcb2ab7
-  )
+    <Routes>
+      <Route path="/" element={<Main />} />
+      <Route path="/users" element={<Users />} />
+      <Route path="/main" element={<Main />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
