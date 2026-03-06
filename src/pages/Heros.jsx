@@ -243,23 +243,23 @@ function Heros() {
             )}
 
             <style>{`
-        @keyframes modalOpen {
-          0% { opacity: 0; transform: scale(0.9) translateY(50px);}
-          100% { opacity: 1; transform: scale(1) translateY(0);}
-        }
-        @keyframes pulse {
-          0%, 100% { transform: scale(1); opacity: 1; }
-          50% { transform: scale(1.05); opacity: 0.9; }
-        }
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-8px); }
-        }
-        @keyframes glow {
-          0%, 100% { opacity: 0.2; }
-          50% { opacity: 0.35; }
-        }
-      `}</style>
+                @keyframes modalOpen {
+                0% { opacity: 0; transform: scale(0.9) translateY(50px);}
+                100% { opacity: 1; transform: scale(1) translateY(0);}
+                }
+                @keyframes pulse {
+                0%, 100% { transform: scale(1); opacity: 1; }
+                50% { transform: scale(1.05); opacity: 0.9; }
+                }
+                @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-8px); }
+                }
+                @keyframes glow {
+                0%, 100% { opacity: 0.2; }
+                50% { opacity: 0.35; }
+                }
+            `}</style> 
         </div>
     );
 }

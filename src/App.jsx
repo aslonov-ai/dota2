@@ -19,24 +19,24 @@ function App() {
       <Route path="/" element={<Main />} />
       <Route path="/users" element={<Users />} />
       <Route path="/main" element={<Main />} />
-      <Route path="/heros" element={<Heros />} />
+      <Route path="/heroes" element={<Heros />} />
       <Route path="/userinfos" element={<UserInfos />} />
       <Route path="/live" element={<Live />} />
     </Routes>
   );
-      // <Routes>
-      //   <Route path='/users' element={<Users/>}/>
-      // </Routes>
+  // <Routes>
+  //   <Route path='/users' element={<Users/>}/>
+  // </Routes>
 
-    // <div>
-    //   <Heros />
-    //   <Routes>
-    //     <Route path='/' element={Users}/>
-    //     <Route path='/Main' element={Main}/>
-    //   </Routes>
+  // <div>
+  //   <Heros />
+  //   <Routes>
+  //     <Route path='/' element={Users}/>
+  //     <Route path='/Main' element={Main}/>
+  //   </Routes>
 
-    // </div>
-  
+  // </div>
+
 }
 
 export default App;
