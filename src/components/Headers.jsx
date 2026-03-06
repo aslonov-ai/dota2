@@ -28,8 +28,7 @@ const gameLinks = [
 ];
 
 const languages = [
-  "English", "Русский", "O'zbek", "Deutsch",
-  "Français", "Español", "Türkçe", "中文",
+  "English", "Русский", "O'zbek", 
 ];
 
 const Headers = () => {
