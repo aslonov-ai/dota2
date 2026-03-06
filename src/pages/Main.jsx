@@ -124,7 +124,7 @@ const AutoSlideshow = ({ images }) => {
   }, [images.length]);
 
   return (
-    <section className="relative w-full overflow-hidden bg-black" style={{ height: "70vh", minHeight: 380 }}>
+    <section className="relative w-full overflow-hidden bg-black mt-10" style={{ height: "70vh", minHeight: 380 }}>
       {images.map((img, i) => (
         <div
           key={i}
