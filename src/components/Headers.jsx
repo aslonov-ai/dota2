@@ -96,7 +96,12 @@ const Headers = () => {
               </div>
             )}
           </div>
-
+ <Link
+            to="/Main"
+            className="flex items-center h-14 px-4 text-[13px] font-bold uppercase tracking-wider text-[#8eacc5] hover:text-white hover:bg-white/5 transition-colors duration-200"
+          >
+            Main
+          </Link>
           {/* ГЕРОИ */}
           <Link
             to="/heros"
@@ -106,12 +111,7 @@ const Headers = () => {
           </Link>
 
           {/* НОВОСТИ */}
-          {/* <Link
-            // to="/news"
-            className="flex items-center h-14 px-4 text-[13px] font-bold uppercase tracking-wider text-[#8eacc5] hover:text-white hover:bg-white/5 transition-colors duration-200"
-          >
-            News
-          </Link> */}
+         
 
           {/* КИБЕРСПОРТ */}
           {/* <Link
