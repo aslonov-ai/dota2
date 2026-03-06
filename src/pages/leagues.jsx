@@ -1,11 +1,9 @@
 import React from 'react'
 
-function leagues() {
+function Leagues() {
   return (
-    <div>
-        noij
-    </div>
+    <div>Leagues</div>
   )
 }
 
-export default leagues
+export default Leagues
