@@ -3,21 +3,17 @@ import Users from "./pages/Users";
 import Main from "./pages/Main";
 import { Routes, Route, Link } from "react-router-dom";
 import Heros from "./pages/Heros"
-<<<<<<< Updated upstream
 import UserInfos from "./pages/UserInfos"
 import Live from "./pages/Live"
 // import Users from "./pages/Users"
 // import Main from "./pages/Main"
 // import Users from "./pages/Users"
 import axios from "axios"
-=======
->>>>>>> Stashed changes
 
 
 
 function App() {
   return (
-<<<<<<< Updated upstream
     <Routes>
 
       <Route path="/" element={<Main />} />
@@ -41,12 +37,6 @@ function App() {
 
     // </div>
   
-=======
-    <div>
-      <Heros />
-    </div>
-  )
->>>>>>> Stashed changes
 }
 
 export default App;
