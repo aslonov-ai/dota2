@@ -3,7 +3,7 @@ import Headers from "../components/Headers";
 import axios from "axios";
 import { div } from "framer-motion/client";
 
-const API_URL = "https://api.opendota.com/api/scenarios/itemTimings";
+const API_URL = "https://api.opendota.com/api/live";
 
 const FALLBACK = [
   {
@@ -278,11 +278,11 @@ const Live = () => {
 
       {!loading && matches.length === 0 && (
         <div className="max-w-6xl mx-auto text-center py-24">
-          <div className="text-6xl mb-4 opacity-20">⚔</div>
+          {/* <div className="text-6xl mb-4 opacity-20">⚔</div>
           <p className="text-[#3a5a78] text-lg font-semibold uppercase tracking-widest">
             No live matches right now
           </p>
-          <p className="text-[#2a4a68] text-sm mt-2">Check back soon</p>
+          <p className="text-[#2a4a68] text-sm mt-2">Check back soon</p> */}
         </div>
       )}
     </div>
