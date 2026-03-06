@@ -65,8 +65,8 @@ function UserInfos() {
                         />
                       </svg>
 
-                      <span className="text-[10px] font-bold tracking-[4px] bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent">
-                        MYTHIC
+                      <span className="text-xl font-bold tracking-[4px] bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent">
+                        Player
                       </span>
                     </div>
 
@@ -80,84 +80,57 @@ function UserInfos() {
 
                   <div className="text-center mb-2">
                     <div className="text-2xl font-black tracking-wider bg-gradient-to-b from-white via-violet-200 to-violet-400 bg-clip-text text-transparent">
-                      {user.personaname}
+                      {user.profile.personaname}
                     </div>
-
-                    <p className="text-[11px] italic text-violet-300/80 tracking-wide">
-                      Herald of the Endless Dark
-                    </p>
                   </div>
 
-                  <div className="relative flex-shrink-0 h-[165px] rounded-xl overflow-hidden border border-violet-500/30">
-                    <svg
-                      className="absolute inset-0 w-full h-full"
-                      viewBox="0 0 200 165"
-                    >
-                      <defs>
-                        <radialGradient id="aura" cx="50%" cy="50%" r="45%">
-                          <stop
-                            offset="0%"
-                            stopColor="#8b5cf6"
-                            stopOpacity="0.7"
-                          />
-                          <stop
-                            offset="100%"
-                            stopColor="#1e1b4b"
-                            stopOpacity="0"
-                          />
-                        </radialGradient>
-                      </defs>
-
-                      <ellipse
-                        cx="100"
-                        cy="90"
-                        rx="60"
-                        ry="55"
-                        fill="url(#aura)"
-                        className="animate-pulse"
-                      />
-
-                      <circle cx="65" cy="95" r="10" fill="#7c3aed" />
-                      <circle cx="65" cy="95" r="6" fill="#a78bfa" />
-
-                      <text
-                        x="40"
-                        y="45"
-                        fill="#a78bfa"
-                        fontSize="14"
-                        opacity="0.8"
-                      >
-                        ᛟ
-                      </text>
-                    </svg>
+                  <div className="flex justify-center ">
+                    <img
+                      className="relative rounded-xl border-3 border-violet-500/30"
+                      src={user.profile.avatarfull}
+                    />
                   </div>
 
                   <div className="my-2 py-1.5 rounded-full bg-gradient-to-r from-transparent via-violet-900/50 to-transparent border-y border-violet-600/20">
                     <p className="text-[10px] text-center text-violet-200/90 tracking-[3px] font-medium">
-                      CREATURE — SPECTER HORROR
+                      account_id: {user.rank_tier?user.rank_tier:0}
                     </p>
                   </div>
 
                   <div className="flex-1 rounded-lg bg-gradient-to-b from-slate-900/80 via-violet-950/60 to-slate-900/90 border border-violet-700/20 p-3">
                     <div className="flex items-center gap-2 mb-2">
                       <span className="px-2 py-0.5 rounded-full bg-violet-800/60 text-[9px] text-violet-200 font-semibold">
-                        DEATHTOUCH
+                        rank_tier: {user.rank_tier?user.rank_tier:'-'}
                       </span>
 
                       <span className="px-2 py-0.5 rounded-full bg-slate-800/60 text-[9px] text-slate-300 font-semibold">
-                        FLYING
+                        cheese: {user.profile.cheese}
                       </span>
                     </div>
 
                     <p className="text-[11px] text-violet-100 mb-2">
                       <span className="text-pink-400 font-bold italic">
-                        Reap Soul
+                        rank_tier:
                       </span>{" "}
-                      — Combat damage exiles target creature.
+                      {user.rank_tier}
                     </p>
-
-                    <p className="text-[10px] italic text-violet-400/60 border-t border-violet-700/20 pt-2">
-                      "The void simply... consumes."
+                    <p className="text-[11px] text-violet-100 mb-2">
+                      <span className="text-pink-400 font-bold italic">
+                        computed_mmr--
+                      </span>{" "}
+                      {user.computed_mmr}
+                    </p>
+                    <p className="text-[11px] text-violet-100 mb-2">
+                      <span className="text-pink-400 font-bold italic">
+                        steamId--
+                      </span>{" "}
+                      {user.profile.steamid}
+                    </p>
+                    <p className="text-[11px] text-violet-100 mb-2">
+                      <span className="text-pink-400 font-bold italic">
+                        profileUrl--
+                      </span>{" "}
+                      {user.profile.profileurl}
                     </p>
                   </div>
                 </div>
