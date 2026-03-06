@@ -11,7 +11,6 @@ function UserInfos() {
       .get("https://api.opendota.com/api/players/" + playerId)
       .then((response) => {
         setUser(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log("Api ishlamadi:", error);
@@ -79,7 +78,7 @@ function UserInfos() {
                   </div>
 
                   <div className="text-center mb-2">
-                    <div className="text-2xl font-black tracking-wider bg-gradient-to-b from-white via-violet-200 to-violet-400 bg-clip-text text-transparent">
+                    <div className="text-3xl font-black tracking-wider bg-gradient-to-b from-white via-violet-200 to-violet-400 bg-clip-text text-transparent">
                       {user.profile.personaname}
                     </div>
                   </div>
@@ -92,41 +91,53 @@ function UserInfos() {
                   </div>
 
                   <div className="my-2 py-1.5 rounded-full bg-gradient-to-r from-transparent via-violet-900/50 to-transparent border-y border-violet-600/20">
-                    <p className="text-[10px] text-center text-violet-200/90 tracking-[3px] font-medium">
-                      account_id: {user.rank_tier?user.rank_tier:0}
+                    <p className="text-sm text-center text-violet-200/90 tracking-[3px] font-medium">
+                      account_id: {user.profile.account_id}
                     </p>
                   </div>
 
                   <div className="flex-1 rounded-lg bg-gradient-to-b from-slate-900/80 via-violet-950/60 to-slate-900/90 border border-violet-700/20 p-3">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="px-2 py-0.5 rounded-full bg-violet-800/60 text-[9px] text-violet-200 font-semibold">
+                      <span className="px-2 py-0.5 rounded-full bg-violet-800/60 text-xs text-violet-200 font-semibold">
                         rank_tier: {user.rank_tier?user.rank_tier:'-'}
                       </span>
 
-                      <span className="px-2 py-0.5 rounded-full bg-slate-800/60 text-[9px] text-slate-300 font-semibold">
+                      <span className="px-2 py-0.5 rounded-full bg-slate-800/60 text-xs text-slate-300 font-semibold">
                         cheese: {user.profile.cheese}
                       </span>
                     </div>
 
-                    <p className="text-[11px] text-violet-100 mb-2">
+                    <p className="text-sm text-violet-100 mb-2">
                       <span className="text-pink-400 font-bold italic">
-                        rank_tier:
+                        avatar---
                       </span>{" "}
-                      {user.rank_tier}
+                      {user.profile.avatar}
                     </p>
-                    <p className="text-[11px] text-violet-100 mb-2">
+                    <p className="text-sm text-violet-100 mb-2">
+                      <span className="text-pink-400 font-bold italic">
+                        avatarfull---
+                      </span>{" "}
+                      {user.profile.avatarfull}
+                    </p>
+                    <p className="text-sm text-violet-100 mb-2">
+                      <span className="text-pink-400 font-bold italic">
+                        avatarmedium---
+                      </span>{" "}
+                      {user.profile.avatarmedium}
+                    </p>
+                    <p className="text-sm text-violet-100 mb-2">
                       <span className="text-pink-400 font-bold italic">
                         computed_mmr--
                       </span>{" "}
                       {user.computed_mmr}
                     </p>
-                    <p className="text-[11px] text-violet-100 mb-2">
+                    <p className="text-sm text-violet-100 mb-2">
                       <span className="text-pink-400 font-bold italic">
                         steamId--
                       </span>{" "}
                       {user.profile.steamid}
                     </p>
-                    <p className="text-[11px] text-violet-100 mb-2">
+                    <p className="text-sm text-violet-100 mb-2">
                       <span className="text-pink-400 font-bold italic">
                         profileUrl--
                       </span>{" "}
