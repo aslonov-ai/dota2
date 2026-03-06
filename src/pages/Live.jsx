@@ -129,7 +129,7 @@ const MatchCard = ({ match }) => {
             >
               {team1.score}
             </span> */}
-            <span className="text-xl font-bold text-[#3a5a78]">:</span>
+            {/* <span className="text-xl font-bold text-[#3a5a78]">:</span> */}
             {/* <span
               className="text-4xl font-black"
               style={{ color: team2.score > team1.score ? "#4c9be8" : "#c8d6e5" }}
@@ -278,11 +278,11 @@ const Live = () => {
 
       {!loading && matches.length === 0 && (
         <div className="max-w-6xl mx-auto text-center py-24">
-          <div className="text-6xl mb-4 opacity-20">⚔</div>
+          {/* <div className="text-6xl mb-4 opacity-20">⚔</div>
           <p className="text-[#3a5a78] text-lg font-semibold uppercase tracking-widest">
             No live matches right now
           </p>
-          <p className="text-[#2a4a68] text-sm mt-2">Check back soon</p>
+          <p className="text-[#2a4a68] text-sm mt-2">Check back soon</p> */}
         </div>
       )}
     </div>
