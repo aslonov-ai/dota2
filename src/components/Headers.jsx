@@ -67,13 +67,13 @@ const Headers = () => {
             onMouseEnter={() => setGameOpen(true)}
             onMouseLeave={() => setGameOpen(false)}
           >
-            <button
+            {/* <button
               className={`flex items-center gap-1 h-14 px-4 text-[13px] font-bold uppercase tracking-wider transition-colors duration-200 cursor-pointer
                 ${gameOpen ? "text-white bg-white/5" : "text-[#8eacc5] hover:text-white hover:bg-white/5"}`}
             >
               Play
               <span className="text-[9px] opacity-60 mt-0.5">▼</span>
-            </button>
+            </button> */}
 
             {gameOpen && (
               <div
@@ -107,20 +107,20 @@ const Headers = () => {
           </Link>
 
           {/* НОВОСТИ */}
-          <Link
+          {/* <Link
             // to="/news"
             className="flex items-center h-14 px-4 text-[13px] font-bold uppercase tracking-wider text-[#8eacc5] hover:text-white hover:bg-white/5 transition-colors duration-200"
           >
             News
-          </Link>
+          </Link> */}
 
           {/* КИБЕРСПОРТ */}
-          <Link
+          {/* <Link
             // to="/esports"
             className="flex items-center h-14 px-4 text-[13px] font-bold uppercase tracking-wider text-[#8eacc5] hover:text-white hover:bg-white/5 transition-colors duration-200"
           >
             eSports
-          </Link>
+          </Link> */}
 
         </nav>
 

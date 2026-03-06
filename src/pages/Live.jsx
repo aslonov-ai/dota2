@@ -1,75 +1,70 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Headers from "../components/Headers";
-
-const API = "https://api.opendota.com/api/live";
 
 function Live() {
 
   const [matches, setMatches] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const getMatches = async () => {
-    try {
-      const res = await axios.get(API);
-      setMatches(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-    setLoading(false);
-  };
 
   useEffect(() => {
-    getMatches();
+    axios.get("https://api.opendota.com/api/live")
+      .then((res) => {
+        setMatches(res.data);
+        console.log(res.data);
+        
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#06111c] text-white">
+    <div className="bg-black min-h-screen text-white">
 
       <Headers />
 
-      <div className="max-w-6xl mx-auto p-6">
+      <h1 className="text-3xl text-center mt-10">
+        Live Matches
+      </h1>
 
-        <h1 className="text-4xl font-bold mb-6">
-          Live Matches
-        </h1>
+      <div className="grid md:grid-cols-3 gap-6 p-10">
 
-        {loading && <p>Loading...</p>}
+        {matches.map((match, index) => (
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            key={match.match_id || index}
+            className="bg-gray-800 p-5 rounded-lg"
+          >
 
-          {matches.map((match) => (
+            <p className="text-gray-400 mb-2">
+              Match ID: {match.match_id}
+            </p>
 
-            <div
-              key={match.match_id}
-              className="bg-[#0f1e2e] border border-[#1e3a5a] p-5 rounded"
-            >
+            <div className="flex justify-between mt-4 text-lg">
 
-              <p className="text-sm text-gray-400 mb-3">
-                {match.league_name || "Unknown League"}
-              </p>
+              <span>
+                {match.radiant_team?.name
+                  ? match.radiant_team.name
+                  : "Radiant Team"}
+              </span>
 
-              <div className="flex justify-between items-center">
+              <span className="text-red-400">
+                VS
+              </span>
 
-                <div className="text-center">
-                  <p className="font-bold">
-                    {match. _team?.name || "Radiant"}
-                  </p>
-                </div>
+              <span>
+                {match.dire_team?.name
+                  ? match.dire_team.name
+                  : "Dire Team"}
+              </span>
 
-                <span className="text-xl font-bold">
-                  VS
-                </span>
+            </div>
 
-                <div className="text-center">
-                  <p className="font-bold">
-                    {match.dire_team?.name || "Dire"}
-                  </p>
-                </div>
+            <p className="mt-3 text-sm text-gray-400">
+              Spectators: {match.spectators || "Unknown"}
+            </p>
 
-              </div>
-
-              <a
+           <a
                 href="https://www.twitch.tv/dota2ti"
                 target="_blank"
                 className="block mt-4 text-center bg-blue-600 py-2 rounded"
@@ -77,11 +72,9 @@ function Live() {
                 Watch
               </a>
 
-            </div>
+          </div>
 
-          ))}
-
-        </div>
+        ))}
 
       </div>
 
