@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-// import Headers from "../components/Headers";
+import Headers from "../components/Headers";
 import axios from "axios";
-// import { div } from "framer-motion/client";
+import { div } from "framer-motion/client";
 
-const API_URL = "https://api.opendota.com/api/live";
+const API_URL = "https://api.opendota.com/api/scenarios/itemTimings";
 
 const FALLBACK = [
   {
@@ -92,7 +92,7 @@ const MatchCard = ({ match }) => {
 
   return (
     <div>
-      {/* <Headers/> */}
+      <Headers/>
       <div
       className="relative border transition-all  duration-300 hover:-translate-y-1 cursor-pointer group"
       style={{
@@ -116,34 +116,34 @@ const MatchCard = ({ match }) => {
       </div>
 
       <div className="flex items-center justify-between px-5 py-5 gap-3">
-        <div className="flex flex-col items-center gap-2 flex-1">
+        {/* <div className="flex flex-col items-center gap-2 flex-1">
           <img src={team1.logo} alt={team1.name} className="w-12 h-12 object-contain opacity-90" />
           <span className="text-white font-bold text-sm text-center leading-tight">{team1.name}</span>
-        </div>
+        </div> */}
 
         <div className="flex flex-col items-center gap-1 flex-shrink-0">
           <div className="flex items-center gap-3">
-             <span
+            {/* <span
               className="text-4xl font-black"
               style={{ color: team1.score > team2.score ? "#4c9be8" : "#c8d6e5" }}
             >
               {team1.score}
-            </span> 
-            <span className="text-xl font-bold text-[#3a5a78]">:</span>
-             <span
+            </span> */}
+            {/* <span className="text-xl font-bold text-[#3a5a78]">:</span> */}
+            {/* <span
               className="text-4xl font-black"
               style={{ color: team2.score > team1.score ? "#4c9be8" : "#c8d6e5" }}
             >
               {team2.score}
-            </span>
+            </span> */}
           </div>
-          <span className="text-[12px] font-mono text-[#4a8ab5] tracking-widest">{duration}</span>
+          {/* <span className="text-[12px] font-mono text-[#4a8ab5] tracking-widest">{duration}</span> */}
         </div>
 
-        <div className="flex flex-col items-center gap-2 flex-1">
+        {/* <div className="flex flex-col items-center gap-2 flex-1">
           <img src={team2.logo} alt={team2.name} className="w-12 h-12 object-contain opacity-90" />
           <span className="text-white font-bold text-sm text-center leading-tight">{team2.name}</span>
-        </div>
+        </div> */}
       </div>
 
       <div
