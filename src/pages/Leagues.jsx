@@ -1,8 +1,12 @@
 import React from 'react'
+import Headers from '../components/Headers'
 
 function Leagues() {
   return (
-    <div>Leagues</div>
+    <div>
+        <Headers/>
+        asjbfjsbf
+    </div>
   )
 }
 

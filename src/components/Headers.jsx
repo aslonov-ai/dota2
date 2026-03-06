@@ -40,21 +40,21 @@ const Headers = () => {
       <header
         className="fixed top-0 left-0 right-0 z-50 flex items-center h-24 px-5 gap-0"
         style={{
-          // background: "linear-gradient(180deg, #0e1d2e 0%, #0a1520 100%)",
-          // borderBottom: "1px solid #1e3a5a",
-          // boxShadow: "0 2px 20px rgba(0,0,0,0.5)",
+          background: "linear-gradient(180deg, #0e1d2e 0%, #0a1520 100%)",
+          borderBottom: "1px solid #1e3a5a",
+          boxShadow: "0 2px 20px rgba(0,0,0,0.5)",
         }}
       >
 
         <Link to="/" className="flex items-center gap-2 mr-7 flex-shrink-0">
           <img
-            src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/global/dota2_logo_symbol.png"
+          src={rasm}
             alt="Dota 2"
-            className="w-8 h-8"
+            className=""
           />
-          <span className="text-xl font-black tracking-widest text-[#c8d6e5]">
+          {/* <span className="text-xl font-black tracking-widest text-[#c8d6e5]">
             DOTA 2
-          </span>
+          </span> */}
         </Link>
 
         {/* NAV */}
