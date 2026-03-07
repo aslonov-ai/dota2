@@ -48,21 +48,7 @@ function Leagues() {
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-red-500/0 via-red-500/0 to-yellow-500/0 group-hover:from-red-500/10 group-hover:via-red-500/5 group-hover:to-yellow-500/10 transition-all duration-500 pointer-events-none"></div>
 
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-red-600 to-yellow-600 flex items-center justify-center shadow-lg">
-                    <svg
-                      className="w-6 h-6 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4 7h16M4 12h16M4 17h16"
-                      />
-                    </svg>
-                  </div>
+                  
                   <span className="text-xs font-mono text-gray-500 bg-gray-900/50 px-2 py-1 rounded-full border border-gray-700">
                     #{index + 1}
                   </span>
