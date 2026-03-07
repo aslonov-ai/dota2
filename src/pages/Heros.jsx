@@ -145,9 +145,9 @@ function Heros() {
                 )}
 
                 {matchesModalOpen && (
-                    <div className="fixed inset-0 bg-black/80 backdrop-blur-xl flex items-center justify-center z-50 transition-opacity duration-300 overflow-auto p-4">
+                    <div className="fixed inset-0 bg-gray/2 backdrop-blur-xl flex items-center justify-center z-50 transition-opacity duration-300 overflow-auto p-4">
                         <div
-                            className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl max-w-lg w-full p-6 border-2 border-cyan-400 shadow-neon relative animate-fadeIn"
+                            className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl max-w-5xl w-full p-6 border-2 border-cyan-400 shadow-neon relative animate-fadeIn"
                             style={{
                                 boxShadow: "0 0 20px #00ffff, 0 0 40px #ff00ff, 0 0 60px #ffdd00",
                             }}
@@ -167,7 +167,7 @@ function Heros() {
                                 {selectedHero?.localized_name} Matches
                             </h2>
 
-                            <div className="max-h-96 overflow-y-auto space-y-4 scrollbar-thin scrollbar-thumb-cyan-500 scrollbar-track-gray-700">
+                            <div className="max-h-110 overflow-y-auto space-y-4 scrollbar-thin scrollbar-thumb-cyan-500 scrollbar-track-gray-700">
                                 {matches.map(match => (
                                     <div
                                         key={match.match_id}

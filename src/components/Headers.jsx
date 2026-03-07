@@ -32,7 +32,7 @@ const Headers = () => {
           boxShadow: "0 2px 20px rgba(0,0,0,0.5)",
         }}
       >
-        <Link to="/" className=" w-80">
+        <Link to="/Main" className=" w-80">
           <img src={rasm} alt="Dota 2" />
         </Link>
 

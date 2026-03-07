@@ -25,7 +25,7 @@ function Matches() {
     <div>
       <Headers />
       <div className="p-6 bg-gray-900 min-h-screen text-white font-sans relative mt-10 ">
-        <h1 className="text-4xl font-extrabold mb-8 text-center text-yellow-400 drop-shadow-lg animate-pulse">
+        <h1 className="text-4xl font-extrabold mb-8 text-center text-yellow-400 drop-shadow-lg">
           🎮 Public Matches
         </h1>
 
@@ -47,14 +47,20 @@ function Matches() {
         {selectedMatch && (
           <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-start pt-20 z-50">
             <div className="relative w-full max-w-4xl p-6 bg-gray-800 rounded-3xl shadow-2xl border-2 border-yellow-400">
-              <button
-                onClick={closeOverlay}
-                className="absolute top-4 right-4 text-yellow-400 hover:text-yellow-200 font-bold text-xl"
-              >
-                ✖
-              </button>
+              <div className="flex items-center justify-between" onClick={closeOverlay}>
+                <div>
+                  <h2 className="text-3xl font-bold mb-5 text-yellow-400 drop-shadow-md">⚔️ Match Details</h2>
+                </div>
+                <div>
+                  <button
 
-              <h2 className="text-3xl font-bold mb-5 text-yellow-400 drop-shadow-md">⚔️ Match Details</h2>
+                    className="text-yellow-400 hover:text-yellow-200 font-bold text-xl"
+                  >
+                    ✖
+                  </button>
+                </div>
+              </div>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5 text-gray-300">
                 <p>
                   <span className="font-semibold text-yellow-300">
@@ -95,7 +101,7 @@ function Matches() {
                     <li
                       key={player.account_id || index}
                       className="p-3 bg-gray-700 rounded-xl flex justify-between items-center shadow-md 
-                               hover:shadow-yellow-400/70 transform hover:scale-105 transition-all duration-300 
+                               hover:shadow-yellow-400/70 transform  transition-all duration-300 
                                border-l-4 border-yellow-400 hover:border-yellow-500"
                     >
                       <span className="hover:text-yellow-200">{player.personaname || "Anonymous"} (Hero ID: {player.hero_id})</span>
