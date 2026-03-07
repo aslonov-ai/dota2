@@ -6,7 +6,7 @@ import UserInfos from "./pages/UserInfos"
 import Live from "./pages/Live"
 import Teams from "./pages/Teams";
 import Matches from "./pages/Matches";
-import Leagues from "./pages/leagues";
+import Leagues from "./pages/Leagues";
 
 function App() {
   return (
