@@ -335,7 +335,7 @@ const HeroSection = ({ news }) => (
       </h1>
     </div>
 
-    <div className="absolute bottom-0 left-0 right-0 z-30 pb-0 px-4">
+    <div className="absolute bottom-0 left-0 right-0 pb-0 px-4">
       <Cards cards={news} />
     </div>
   </section>
