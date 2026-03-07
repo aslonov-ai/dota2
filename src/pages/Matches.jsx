@@ -56,11 +56,36 @@ function Matches() {
 
               <h2 className="text-3xl font-bold mb-5 text-yellow-400 drop-shadow-md">⚔️ Match Details</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5 text-gray-300">
-                <p><span className="font-semibold text-yellow-300">Match ID:</span> {selectedMatch.match_id}</p>
-                <p><span className="font-semibold text-yellow-300">Duration:</span> {selectedMatch.duration ? Math.floor(selectedMatch.duration / 60) : "N/A"} min</p>
-                <p><span className="font-semibold text-yellow-300">Radiant Score:</span> {selectedMatch.radiant_score ?? "N/A"}</p>
-                <p><span className="font-semibold text-yellow-300">Dire Score:</span> {selectedMatch.dire_score ?? "N/A"}</p>
-                <p><span className="font-semibold text-yellow-300">Winner:</span> {selectedMatch.radiant_win !== undefined ? (selectedMatch.radiant_win ? "Radiant" : "Dire") : "N/A"}</p>
+                <p>
+                  <span className="font-semibold text-yellow-300">
+                    Match ID:
+                  </span>
+                  {selectedMatch.match_id}
+                </p>
+                <p>
+                  <span className="font-semibold text-yellow-300">
+                    Duration:
+                  </span>
+                  {selectedMatch.duration ? Math.floor(selectedMatch.duration / 60) : "N/A"} min
+                </p>
+                <p>
+                  <span className="font-semibold text-yellow-300">
+                    Radiant Score:
+                  </span>
+                  {selectedMatch.radiant_score ?? "N/A"}
+                </p>
+                <p>
+                  <span className="font-semibold text-yellow-300">
+                    Dire Score:
+                  </span>
+                  {selectedMatch.dire_score ?? "N/A"}
+                </p>
+                <p>
+                  <span className="font-semibold text-yellow-300">
+                    Winner:
+                  </span>
+                  {selectedMatch.radiant_win !== undefined ? (selectedMatch.radiant_win ? "Radiant" : "Dire") : "N/A"}
+                </p>
               </div>
 
               <h3 className="text-2xl font-semibold mb-4 text-yellow-300 drop-shadow-md">Players:</h3>
