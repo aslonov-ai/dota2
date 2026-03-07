@@ -24,7 +24,7 @@ function Matches() {
   return (
     <div>
       <Headers />
-      <div className="p-6 bg-gray-900 min-h-screen text-white font-sans relative mt-10">
+      <div className="p-6 bg-gray-900 min-h-screen text-white font-sans relative mt-10 ">
         <h1 className="text-4xl font-extrabold mb-8 text-center text-yellow-400 drop-shadow-lg animate-pulse">
           🎮 Public Matches
         </h1>

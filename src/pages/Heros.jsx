@@ -106,27 +106,27 @@ function Heros() {
                             </h2>
                             <div className="text-gray-300 space-y-1 text-center mb-4">
                                 <p>
-                                    <span style={{ color: "#00ff00", fontWeight: "bold" }}>
+                                    <span className="text-[#00ff00] ">
                                         Attack:
                                     </span> {selectedHero.attack_type}
                                 </p>
                                 <p>
-                                    <span style={{ color: "#ffdd00", fontWeight: "bold" }}>
+                                    <span className="text-[#ffdd00]">
                                         Attribute:
                                     </span> {selectedHero.primary_attr}
                                 </p>
                                 <p>
-                                    <span style={{ color: "#ff4500", fontWeight: "bold" }}>
+                                    <span className="text-[#ff4500]" >
                                         Roles:
                                     </span> {selectedHero.roles.join(", ")}
                                 </p>
                                 <p>
-                                    <span style={{ color: "#00ffff", fontWeight: "bold" }}>
+                                    <span className="text-[#00ffff]">
                                         Damage:
                                     </span> {selectedHero.base_attack_min}-{selectedHero.base_attack_max}
                                 </p>
                                 <p>
-                                    <span style={{ color: "#ff00ff", fontWeight: "bold" }}>
+                                    <span className="text-[#ff00ff]">
                                         Speed:
                                     </span> {selectedHero.move_speed}
                                 </p>
