@@ -16,11 +16,11 @@ function Teams() {
       });
   }, []);
   return (
-    <div className="bg-black">
+    <div className="bg-black bg-gradient-to-tr from-slate-900 via-emerald-900 to-amber-700">
       <div className="mb-20">
         <Headers/>
       </div>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 md:max-w-2xl gap-6 lg:max-w-7xl mx-auto">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 md:max-w-2xl gap-6 lg:max-w-7xl mx-auto ">
         {teams.map((team, index) => (
           <div className="lg:w-100 md:w-80 w-70 relative rounded-2xl border border-yellow-500/70 bg-gradient-to-br from-amber-900/90 via-slate-900 to-emerald-900/90 hover:shadow-[0_0_40px_rgba(250,204,21,0.35)] p-4 max-w-sm mx-auto overflow-hidden">
             <div class="absolute -right-10 top-6 rotate-45 bg-yellow-500 text-black text-xs font-bold tracking-wide px-10 py-1 shadow-lg">
