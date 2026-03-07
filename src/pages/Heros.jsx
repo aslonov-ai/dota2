@@ -25,7 +25,7 @@ function Heros() {
             .then(res => res.json())
             .then(data => {
                 setMatches(data);
-                setMatchesModalOpen(true); // Match modalini ochish
+                setMatchesModalOpen(true); 
             });
     };
 
@@ -49,7 +49,6 @@ function Heros() {
                     />
                 </div>
 
-                {/* Heroes Grid */}
                 {!matchesModalOpen && (
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
                         {filteredHeroes.map((hero, idx) => {
@@ -86,7 +85,6 @@ function Heros() {
                     </div>
                 )}
 
-                {/* Selected Hero Modal */}
                 {selectedHero && !matchesModalOpen && (
                     <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50 transition-opacity duration-300 overflow-auto p-4">
                         <div className="bg-gray-900 rounded-2xl max-w-md w-full p-6 border shadow-2xl relative animate-fadeIn"
@@ -126,7 +124,6 @@ function Heros() {
                     </div>
                 )}
 
-                {/* Matches Modal */}
                 {matchesModalOpen && (
                     <div className="fixed inset-0 bg-black/80 backdrop-blur-xl flex items-center justify-center z-50 transition-opacity duration-300 overflow-auto p-4">
                         <div
