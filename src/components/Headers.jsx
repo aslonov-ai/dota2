@@ -25,7 +25,7 @@ const Headers = () => {
   return (
     <>
       <header
-        className="fixed top-0 left-0 right-0 z-150 flex items-center h-24 px-5 gap-0"
+        className="fixed top-0 left-0 right-0 z-50 flex items-center h-24 px-5 gap-0"
         style={{
           background: "linear-gradient(180deg, #0e1d2e 0%, #0a1520 100%)",
           borderBottom: "1px solid #1e3a5a",

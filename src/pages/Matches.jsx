@@ -65,7 +65,7 @@ function Matches() {
 
               <h3 className="text-2xl font-semibold mb-4 text-yellow-300 drop-shadow-md">Players:</h3>
               {selectedMatch.players && selectedMatch.players.length > 0 ? (
-                <ul className="space-y-3 max-h-96 overflow-y-auto">
+                <ul className="space-y-3 max-h-80 overflow-y-auto">
                   {selectedMatch.players.map((player, index) => (
                     <li
                       key={player.account_id || index}

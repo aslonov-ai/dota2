@@ -25,7 +25,7 @@ function Heros() {
             .then(res => res.json())
             .then(data => {
                 setMatches(data);
-                setMatchesModalOpen(true); 
+                setMatchesModalOpen(true);
             });
     };
 
@@ -105,11 +105,31 @@ function Heros() {
                                 {selectedHero.localized_name}
                             </h2>
                             <div className="text-gray-300 space-y-1 text-center mb-4">
-                                <p><span style={{ color: "#00ff00", fontWeight: "bold" }}>Attack:</span> {selectedHero.attack_type}</p>
-                                <p><span style={{ color: "#ffdd00", fontWeight: "bold" }}>Attribute:</span> {selectedHero.primary_attr}</p>
-                                <p><span style={{ color: "#ff4500", fontWeight: "bold" }}>Roles:</span> {selectedHero.roles.join(", ")}</p>
-                                <p><span style={{ color: "#00ffff", fontWeight: "bold" }}>Damage:</span> {selectedHero.base_attack_min}-{selectedHero.base_attack_max}</p>
-                                <p><span style={{ color: "#ff00ff", fontWeight: "bold" }}>Speed:</span> {selectedHero.move_speed}</p>
+                                <p>
+                                    <span style={{ color: "#00ff00", fontWeight: "bold" }}>
+                                        Attack:
+                                    </span> {selectedHero.attack_type}
+                                </p>
+                                <p>
+                                    <span style={{ color: "#ffdd00", fontWeight: "bold" }}>
+                                        Attribute:
+                                    </span> {selectedHero.primary_attr}
+                                </p>
+                                <p>
+                                    <span style={{ color: "#ff4500", fontWeight: "bold" }}>
+                                        Roles:
+                                    </span> {selectedHero.roles.join(", ")}
+                                </p>
+                                <p>
+                                    <span style={{ color: "#00ffff", fontWeight: "bold" }}>
+                                        Damage:
+                                    </span> {selectedHero.base_attack_min}-{selectedHero.base_attack_max}
+                                </p>
+                                <p>
+                                    <span style={{ color: "#ff00ff", fontWeight: "bold" }}>
+                                        Speed:
+                                    </span> {selectedHero.move_speed}
+                                </p>
                             </div>
 
                             <div className="text-center mt-4">
