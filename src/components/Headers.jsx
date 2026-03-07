@@ -113,7 +113,7 @@ const Headers = () => {
             to="/Leagues"
             className="flex items-center h-14 px-4 text-[13px] font-bold uppercase tracking-wider text-[#8eacc5] hover:text-white hover:bg-white/5 transition-colors duration-200"
           >
-            Leagues
+            Schema
           </Link>
            <Link
             to="/heros"
