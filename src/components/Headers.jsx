@@ -73,6 +73,10 @@ const Headers = () => {
             Teams
           </NavLink>
 
+          <NavLink to="/Matches" className={navClass}>
+            Matches
+          </NavLink>
+
           <NavLink to="/Leagues" className={navClass}>
             Schema
           </NavLink>
