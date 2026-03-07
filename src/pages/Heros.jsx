@@ -3,6 +3,7 @@ import Headers from "../components/Headers";
 import axios from "axios";
 
 function Heros() {
+    const [img, setImg] = useState('')
     const [heroes, setHeroes] = useState([]);
     const [search, setSearch] = useState("");
     const [selectedHero, setSelectedHero] = useState(null);
@@ -13,9 +14,23 @@ function Heros() {
 
     useEffect(() => {
         axios.get("https://api.opendota.com/api/heroes")
-            .then(res => setHeroes(res.data))
+            .then((res) => {
+                setHeroes(res.data)
+                console.log(res.data)
+            })
+
             .catch(err => console.error(err));
     }, []);
+    useEffect(() => {
+        axios.get("https://api.opendota.com/api/heroStats")
+            .then((res) => {
+                setImg(res.data[1].img);
+                console.log(res.data);
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [])
 
     const openHero = async (hero) => {
         try {
@@ -58,7 +73,8 @@ function Heros() {
 
     const getHeroById = (id) => heroes.find(h => h.id === id);
 
-    const getHeroImg = (hero) => hero?.img ? `https://api.opendota.com${hero.img}` : "/placeholder.png";
+    const getHeroImg = (hero) => { `https://api.opendota.com/api/heroStats/${hero.img}` }
+
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-black p-10 font-sans">
@@ -98,8 +114,7 @@ function Heros() {
                     >
                         <div className="relative overflow-hidden rounded-2xl">
                             <img
-                                src={getHeroImg(hero)}
-                                alt={hero.localized_name}
+                                src={img.img}
                                 className="rounded-2xl mb-3 shadow-xl hover:shadow-[0_0_35px_rgba(0,255,255,0.8)]
                   transition duration-500 transform hover:scale-110"
                             />
@@ -259,7 +274,7 @@ function Heros() {
                 0%, 100% { opacity: 0.2; }
                 50% { opacity: 0.35; }
                 }
-            `}</style> 
+            `}</style>
         </div>
     );
 }
