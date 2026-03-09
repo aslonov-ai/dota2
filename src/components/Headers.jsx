@@ -25,14 +25,14 @@ const Headers = () => {
   return (
     <>
       <header
-        className="fixed top-0 left-0 right-0 z-150 flex items-center h-24 px-5 gap-0"
+        className="fixed top-0 left-0 right-0 z-50 flex items-center h-24 px-5 gap-0"
         style={{
-          background: "linear-gradient(180deg, #0e1d2e 0%, #0a1520 100%)",
+          background: "#000000",
           borderBottom: "1px solid #1e3a5a",
           boxShadow: "0 2px 20px rgba(0,0,0,0.5)",
         }}
       >
-        <Link to="/" className="flex items-center gap-2 mr-7 flex-shrink-0">
+        <Link to="/Main" className=" w-80">
           <img src={rasm} alt="Dota 2" />
         </Link>
 

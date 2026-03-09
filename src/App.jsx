@@ -7,6 +7,7 @@ import Live from "./pages/Live"
 import Teams from "./pages/Teams";
 import Matches from "./pages/Matches";
 import Leagues from "./pages/Leagues";
+import HerosPage from "./heroes/HerosPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/teams" element={<Teams />} />
       <Route path="/matches" element={<Matches />} />
       <Route path="/leagues" element={<Leagues />} />
+      <Route path="/heropage/:id" element={<HerosPage />} />
     </Routes>
   );
 }
