@@ -3,14 +3,13 @@ import axios from "axios";
 import video from "../../public/images/dota_montage_02.mp4";
 import Headers from "../components/Headers";
 
-const API_BASE_URL = "https://your-api.com/api"; // ← API URL shu yerga
+const API_BASE_URL = "https://your-api.com/api"; 
 
 const api = axios.create({
   baseURL: API_BASE_URL,
   timeout: 10000,
   headers: {
-    "Content-Type": "application/json",
-    // "Authorization": `Bearer ${YOUR_TOKEN}`,
+    // "Content-Type": "application/json",
   },
 });
 
@@ -64,7 +63,6 @@ const FALLBACK_STATS = [
   { label: "Countries",       value: "180+", icon: "◎"  },
 ];
 
-// Slideshow rasmlari
 const SLIDESHOW_IMAGES = [
   { src: `https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png`,   label: "The International 2019" },
   { src: `https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/invoker.png`,   label: "The International 10"   },
@@ -389,7 +387,7 @@ const Carousel = ({ heroes }) => {
   const scrollRef = useRef(null);
   const timerRef  = useRef(null);
   const pauseRef  = useRef(false);
-  const CARD_W    = 208; // w-48 + gap
+  const CARD_W    = 208; 
 
   const startAuto = () => {
     clearInterval(timerRef.current);
