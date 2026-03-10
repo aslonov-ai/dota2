@@ -7,9 +7,9 @@ function TeamsInfo() {
   const [teams, setTeams] = useState();
   const [matches, setMatches] = useState([]);
   const [show, setShow] = useState(false);
-  const [players, setPlayers] = useState();
-  const [showplayer, setShowplayers] = useState(false);
-  const [heros, setHeroes] = useState();
+  const [players, setPlayers] = useState([]);
+  const [showPlayer, setShowplayers] = useState(false);
+  const [heros, setHeroes] = useState([]);
   const [showHeros, setShowHeroes] = useState(false);
 
   let teamId = JSON.parse(localStorage.getItem("teamId"));
@@ -52,12 +52,30 @@ function TeamsInfo() {
       .get("https://api.opendota.com/api/teams/" + teamId + "/heroes")
       .then((response) => {
         setHeroes(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.log("Api ishlamadi:", error);
       });
   }, [teamId]);
 
+  const showing = (value) => {
+    if (value == "show") {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
+    if (value == "showHereos") {
+      setShowHeroes(true);
+    } else {
+      setShowHeroes(false);
+    }
+    if (value == "showPlayer") {
+      setShowplayers(true);
+    } else {
+      setShowplayers(false);
+    }
+  };
   return (
     <div className="bg-gradient-to-br from-amber-600/100 via-slate-900 to-emerald-900/90 min-h-screen py-30">
       <div>
@@ -130,19 +148,19 @@ function TeamsInfo() {
 
             <div className="flex justify-center mt-4 gap-4">
               <button
-                onClick={() => setShow(!show)}
+                onClick={() => showing("show")}
                 className="border-2 font-bold border-amber-400/60 rounded-xl px-4 py-2 bg-gradient-to-tr from-slate-900 via-emerald-900 to-amber-700 text-white hover:scale-105 transition"
               >
                 Matches
               </button>
               <button
-                onClick={() => setShowplayers(!showplayer)}
+                onClick={() => showing("showPlayer")}
                 className="border-2 font-bold border-amber-400/60 rounded-xl px-4 py-2 bg-gradient-to-tr from-slate-900 via-emerald-900 to-amber-700 text-white hover:scale-105 transition"
               >
                 Players
               </button>
               <button
-                onClick={() => setShowHeroes(!showHeros)}
+                onClick={() => showing("showHereos")}
                 className="border-2 font-bold border-amber-400/60 rounded-xl px-4 py-2 bg-gradient-to-tr from-slate-900 via-emerald-900 to-amber-700 text-white hover:scale-105 transition"
               >
                 Heroes
@@ -188,7 +206,7 @@ function TeamsInfo() {
         </div>
       )}
 
-      {showplayer && (
+      {showPlayer && (
         <div className="max-w-6xl mx-auto grid grid-cols-3 gap-6 mt-10">
           {players.map((player, index) => (
             <div
