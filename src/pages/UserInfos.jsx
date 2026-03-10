@@ -23,7 +23,6 @@ function UserInfos() {
       .get("https://api.opendota.com/api/players/" + playerId + "/wl")
       .then((response) => {
         setWins(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log("Api ishlamadi:", error);
@@ -68,7 +67,7 @@ function UserInfos() {
       </div>
 
       {user && (
-        <div className="lg:max-w-4xl md:max-w-2xl max-w-2xs mx-auto relative h-[580px] z-10">
+        <div className="lg:max-w-4xl md:max-w-2xl max-w-2xs mx-auto relative h-[680px] z-10">
           <div className="absolute inset-0 z-50 grid grid-cols-3 grid-rows-3 pointer-events-none">
             <div className="peer/tl"></div>
             <div className="peer/tc"></div>
@@ -167,7 +166,6 @@ function UserInfos() {
                       </p>
                       </div>
                     )}
-
                     <p className="text-sm text-violet-100 mb-2">
                       <span className="text-pink-400 font-bold italic">
                         avatar---

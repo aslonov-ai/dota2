@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import Headers from "../components/Headers";
+import { useNavigate } from "react-router-dom";
 
 function Teams() {
+  const navigate=useNavigate()
   const [teams, setTeams] = useState([]);
   useEffect(() => {
     axios
@@ -11,14 +13,14 @@ function Teams() {
       .then((response) => {
         setTeams(response.data);
       })
-      .catch((error) => { 
+      .catch((error) => {
         console.log("Api ishlamadi:", error);
       });
   }, []);
   return (
     <div className="bg-black bg-gradient-to-tr from-slate-900 via-emerald-900 to-amber-700">
       <div className="mb-20">
-        <Headers/>
+        <Headers />
       </div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 md:max-w-2xl gap-6 lg:max-w-7xl mx-auto ">
         {teams.map((team, index) => (
@@ -29,11 +31,17 @@ function Teams() {
 
             <div class="flex items-center justify-between mb-3">
               <p class="text-lg font-extrabold tracking-wide uppercase text-amber-100">
-               {team.name}
+                {team.name}
               </p>
             </div>
 
-            <div class="relative h-40 mb-4 rounded-xl bg-gradient-to-tr from-slate-900 via-emerald-900 to-amber-700 overflow-hidden border border-amber-400/60 shadow-inner">
+            <div
+              onClick={() => {
+                localStorage.setItem("teamId",JSON.stringify(team.team_id));
+                navigate("/teamsinfo");
+              }}
+              class="relative h-40 mb-4 rounded-xl bg-gradient-to-tr from-slate-900 via-emerald-900 to-amber-700 overflow-hidden border border-amber-400/60 shadow-inner"
+            >
               <div class="flex justify-center absolute inset-x-4 bottom-2 text-[0.65rem] text-amber-100/80 font-semibold uppercase tracking-[0.2em] text-right">
                 <img className="h-35 w-35 rounded-full" src={team.logo_url} />
               </div>
@@ -42,9 +50,7 @@ function Teams() {
             <div class="flex items-center justify-between mb-3 text-sm">
               <div class="flex gap-3">
                 <div class="flex items-center gap-1">
-                  <span class="text-xs uppercase text-amber-200/80">
-                    wins
-                  </span>
+                  <span class="text-xs uppercase text-amber-200/80">wins</span>
                   <span class="px-2 py-0.5 rounded bg-slate-900/70 border border-amber-500/70 text-amber-200 font-semibold">
                     {team.wins}
                   </span>
@@ -62,28 +68,24 @@ function Teams() {
 
             <div class="space-y-2 text-xs leading-relaxed">
               <div class="text-gray-300">
-                <span class="font-bold text-amber-300">
-                  tag:
-                </span>
-               {team.tag}
+                <span class="font-bold text-amber-300">tag:</span>
+                {team.tag}
               </div>
               <div class="text-gray-300">
-                <span class="font-bold text-amber-300">
-                  delta:
-                </span>
-               {team.delta}
+                <span class="font-bold text-amber-300">delta:</span>
+                {team.delta}
               </div>
               <div class="text-gray-300">
                 <span class="font-bold text-amber-300">last_match_time:</span>
-               {team.last_match_time}
+                {team.last_match_time}
               </div>
               <div class="text-gray-300">
                 <span class="font-bold text-amber-300">match_id:</span>
-               {team.match_id}
+                {team.match_id}
               </div>
               <div class="text-gray-300">
                 <span class="font-bold text-amber-300">team_id:</span>
-               {team.team_id}
+                {team.team_id}
               </div>
             </div>
 
