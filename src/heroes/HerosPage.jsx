@@ -19,7 +19,7 @@ function HerosPage() {
 
         fetch(`https://api.opendota.com/api/heroes/${id}/players`)
             .then(res => res.json())
-            .then(data => setPlayers(data.slice(0, 30)));
+            .then(data => setPlayers(data.slice(0, 23)));
 
         fetch(`https://api.opendota.com/api/heroes/${id}/itemPopularity`)
             .then(res => res.json())
