@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react";
 
 function UserInfos() {
   const [user, setUser] = useState(null);
+  const [wins, setWins] = useState();
   const cardRef = useRef();
   let playerId = JSON.parse(localStorage.getItem("playerId"));
 
@@ -12,6 +13,16 @@ function UserInfos() {
       .get("https://api.opendota.com/api/players/" + playerId)
       .then((response) => {
         setUser(response.data);
+      })
+      .catch((error) => {
+        console.log("Api ishlamadi:", error);
+      });
+  }, []);
+  useEffect(() => {
+    axios
+      .get("https://api.opendota.com/api/players/" + playerId + "/wl")
+      .then((response) => {
+        setWins(response.data);
       })
       .catch((error) => {
         console.log("Api ishlamadi:", error);
@@ -56,7 +67,7 @@ function UserInfos() {
       </div>
 
       {user && (
-        <div className="lg:max-w-4xl md:max-w-2xl max-w-2xs mx-auto relative h-[580px] z-10">
+        <div className="lg:max-w-4xl md:max-w-2xl max-w-2xs mx-auto relative h-[680px] z-10">
           <div className="absolute inset-0 z-50 grid grid-cols-3 grid-rows-3 pointer-events-none">
             <div className="peer/tl"></div>
             <div className="peer/tc"></div>
@@ -139,39 +150,55 @@ function UserInfos() {
                         cheese: {user.profile.cheese}
                       </span>
                     </div>
+                    {wins && (
+                      <div>
+                        <p className="text-sm text-violet-100 mb-2">
+                        <span className="text-pink-400 font-bold italic">
+                          wins---
+                        </span>
+                        {wins.win}
+                      </p>
+                        <p className="text-sm text-violet-100 mb-2">
+                        <span className="text-pink-400 font-bold italic">
+                          lose---
+                        </span>
+                        {wins.lose}
+                      </p>
+                      </div>
+                    )}
                     <p className="text-sm text-violet-100 mb-2">
                       <span className="text-pink-400 font-bold italic">
-                        avatar---{" "}
+                        avatar---
                       </span>
                       {user.profile.avatar}
                     </p>
                     <p className="text-sm text-violet-100 mb-2">
                       <span className="text-pink-400 font-bold italic">
-                        avatarfull---{" "}
+                        avatarfull---
                       </span>
                       {user.profile.avatarfull}
                     </p>
                     <p className="text-sm text-violet-100 mb-2">
                       <span className="text-pink-400 font-bold italic">
-                        avatarmedium---{" "}
+                        avatarmedium---
                       </span>
                       {user.profile.avatarmedium}
                     </p>
                     <p className="text-sm text-violet-100 mb-2">
                       <span className="text-pink-400 font-bold italic">
-                        computed_mmr--{" "}
+                        computed_mmr---
                       </span>
                       {user.computed_mmr}
                     </p>
                     <p className="text-sm text-violet-100 mb-2">
                       <span className="text-pink-400 font-bold italic">
-                        steamId--{" "}
+                        steamId---
                       </span>
                       {user.profile.steamid}
                     </p>
                     <p className="text-sm text-violet-100 mb-2">
                       <span className="text-pink-400 font-bold italic">
-                        profileUrl--{" "}
+                        profileUrl--
                       </span>
                       {user.profile.profileurl}
                     </p>

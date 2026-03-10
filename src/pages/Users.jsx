@@ -42,10 +42,35 @@ function Users() {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-[#0a001f] via-[#120036] to-[#020010]">
-      <div className="mb-20">
-        <Headers />
+      <div>
+        <Headers/>
       </div>
+      <div className="my-20 flex justify-center gap-4">
+        <Link to={'/proplayers'} className="relative group overflow-hidden border-2 border-[#ffaa33] p-3 px-6 text-white font-bold rounded-lg bg-gradient-to-r from-[#2a3a4a] to-[#1a2a3a] hover:from-[#3a4a5a] hover:to-[#2a3a4a] transition-all duration-300 shadow-[0_0_10px_#ffaa33] hover:shadow-[0_0_20px_#ffaa33] hover:scale-105">
+          <div className="absolute inset-0 bg-[#ffaa33] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+          <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#ffaa33] group-hover:w-4 group-hover:h-4 transition-all duration-300"></div>
+          <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#ffaa33] group-hover:w-4 group-hover:h-4 transition-all duration-300"></div>
+          <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#ffaa33] group-hover:w-4 group-hover:h-4 transition-all duration-300"></div>
+          <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#ffaa33] group-hover:w-4 group-hover:h-4 transition-all duration-300"></div>
+          <span className="relative z-10 flex items-center gap-2">
+            <span className="text-[#ffaa33] text-xl">⚔️</span>
+            Pro Players
+          </span> 
+        </Link>
 
+        <button className="relative group overflow-hidden border-2 border-[#88ccff] p-3 px-6 text-white font-bold rounded-lg bg-gradient-to-r from-[#1a2a3a] to-[#0f1a24] hover:from-[#2a3a4a] hover:to-[#1a2a3a] transition-all duration-300 shadow-[0_0_10px_#88ccff] hover:shadow-[0_0_20px_#88ccff] hover:scale-105">
+          <div className="absolute inset-0 bg-[#88ccff] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+          <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#88ccff] group-hover:w-4 group-hover:h-4 transition-all duration-300"></div>
+          <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#88ccff] group-hover:w-4 group-hover:h-4 transition-all duration-300"></div>
+          <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#88ccff] group-hover:w-4 group-hover:h-4 transition-all duration-300"></div>
+          <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#88ccff] group-hover:w-4 group-hover:h-4 transition-all duration-300"></div>
+          <span className="relative z-10 flex items-center gap-2">
+            <span className="text-[#88ccff] text-xl">🛡️</span>
+            Top Players
+          </span>
+        </button>
+      </div>
+      
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(60)].map((_, i) => (
           <div
@@ -135,7 +160,7 @@ function Users() {
               </p>
               <p>
                 <span className="font-bold text-amber-300">
-                  full_history_time:{" "}
+                  full_history_time:
                 </span>
                 {player.full_history_time}
               </p>

@@ -150,9 +150,9 @@ function Live() {
                   </div>
 
                   <a
-                    href={match.stream_url || "https://www.twitch.tv/dota2ti"}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={"TeamsInfo"}
+                    // target="_blank"
+                    // rel="noopener noreferrer"
                     className="block w-full text-center bg-gradient-to-r from-red-600 to-yellow-600 hover:from-red-500 hover:to-yellow-500 text-white font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25"
                   >
                     <span className="flex items-center justify-center gap-2">
