@@ -7,6 +7,8 @@ function TeamsInfo() {
   const [show, setShow] = useState(false);
   const [players,setPlayers]=useState();
   const [showplayer,setShowplayers]=useState(false)
+  const [heros,setHeroes]=useState()
+  const [showHeros,setShowHeroes]=useState(false)
 
   let teamId = JSON.parse(localStorage.getItem("teamId"));
 
@@ -37,6 +39,19 @@ function TeamsInfo() {
       .get("https://api.opendota.com/api/teams/" + teamId + "/players")
       .then((response) => {
         setPlayers(response.data);
+      })
+      .catch((error) => {
+        console.log("Api ishlamadi:", error);
+      });
+  }, [teamId]);
+
+  useEffect(() => {
+    axios
+      .get("https://api.opendota.com/api/teams/" + teamId + "/heroes")
+      .then((response) => {
+        setHeroes(response.data);
+        console.log(response.data);
+        
       })
       .catch((error) => {
         console.log("Api ishlamadi:", error);
@@ -79,17 +94,8 @@ function TeamsInfo() {
               </div>
             </div>
 
-            <div className="flex justify-around">
-              <div className="space-y-2 text-xs leading-relaxed">
-                <div className="text-gray-300"><span className="font-bold text-amber-300">delta:</span> {teams.delta}</div>
-                <div className="text-gray-300"><span className="font-bold text-amber-300">last_match_time:</span> {teams.last_match_time}</div>
-                <div className="text-gray-300"><span className="font-bold text-amber-300">tag:</span> {teams.tag}</div>
-                <div className="text-gray-300"><span className="font-bold text-amber-300">match_id:</span> {teams.match_id}</div>
-                <div className="text-gray-300"><span className="font-bold text-amber-300">team_id:</span> {teams.team_id}</div>
-                <div className="text-gray-300"><span className="font-bold text-amber-300">rating:</span> {teams.rating}</div>
-              </div>
-
-              <div className="space-y-2 text-xs leading-relaxed">
+            <div className="">
+              <div className="space-y-2 text-xs">
                 <div className="text-gray-300"><span className="font-bold text-amber-300">delta:</span> {teams.delta}</div>
                 <div className="text-gray-300"><span className="font-bold text-amber-300">last_match_time:</span> {teams.last_match_time}</div>
                 <div className="text-gray-300"><span className="font-bold text-amber-300">tag:</span> {teams.tag}</div>
@@ -111,6 +117,12 @@ function TeamsInfo() {
                 className="border-2 font-bold border-amber-400/60 rounded-xl px-4 py-2 bg-gradient-to-tr from-slate-900 via-emerald-900 to-amber-700 text-white hover:scale-105 transition"
               >
                 Players
+              </button>
+              <button
+                onClick={() => setShowHeroes(!showHeros)}
+                className="border-2 font-bold border-amber-400/60 rounded-xl px-4 py-2 bg-gradient-to-tr from-slate-900 via-emerald-900 to-amber-700 text-white hover:scale-105 transition"
+              >
+                Heroes
               </button>
             </div>
 
@@ -153,18 +165,17 @@ function TeamsInfo() {
         </div>
       )}
 
-      {showplayer && (
+      {showHeros && (
         <div className="max-w-6xl mx-auto grid grid-cols-3 gap-6 mt-10">
-          {players.map((player, index) => (
+          {heros.map((heros, index) => (
             <div
               key={index}
               className="p-4 rounded-xl border border-amber-500 bg-slate-900 text-white hover:shadow-lg"
             >
-              <p><b className="font-bold text-amber-300">account_id:</b> {player.account_id}</p>
-              <p><b className="font-bold text-amber-300">games_played:</b> {player.games_played}</p>
-              <p><b className="font-bold text-amber-300">name:</b> {player.name}</p>
-              <p><b className="font-bold text-amber-300">wins:</b> {player.wins}</p>
-              
+              <p><b className="font-bold text-amber-300">games_played:</b> {heros.games_played}</p>
+              <p><b className="font-bold text-amber-300">hero_id:</b> {heros.hero_id}</p>
+              <p><b className="font-bold text-amber-300">localized_name:</b> {heros.localized_name}</p>
+              <p><b className="font-bold text-amber-300">wins:</b> {heros.wins}</p>
             </div>
           ))}
         </div>
