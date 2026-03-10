@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Headers from "../components/Headers";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function ProPLayers() {
   const [players, setPlayers] = useState([]);
+const navigate=useNavigate()
 
   useEffect(() => {
     axios
@@ -56,7 +57,13 @@ function ProPLayers() {
               <div className="absolute inset-0 bg-gradient-to-r from-[#ff8800] to-[#ff5500] rounded-full blur-md opacity-50"></div>
               <div className="relative">
                 <div className="absolute inset-0 border-4 border-[#ffaa33] rounded-full animate-pulse"></div>
-                <img
+                <img onClick={() => {
+                  localStorage.setItem(
+                    "playerId",
+                    JSON.stringify(player.account_id),
+                  );
+                  navigate("/userinfos");
+                }}
                   className="rounded-full w-30 h-30 border-4 border-[#ccaa66] shadow-[0_0_15px_#ffaa33] relative z-10"
                   src={player.avatarfull}
                 />
