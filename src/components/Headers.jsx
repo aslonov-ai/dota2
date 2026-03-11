@@ -23,7 +23,7 @@ const Headers = () => {
     }`;
 
   return (
-    <>
+    <div>
       <header
         className="fixed top-0 left-0 right-0 z-50 flex items-center h-24 px-5 gap-0"
         style={{
@@ -95,7 +95,6 @@ const Headers = () => {
             Live
           </NavLink>
 
-          {/* LANGUAGE */}
           <div
             className="relative hidden md:block"
             onMouseEnter={() => setLangOpen(true)}
@@ -128,8 +127,8 @@ const Headers = () => {
             )}
           </div>
 
-          {/* PLAY BUTTON */}
           <a
+          type="https://store.steampowered.com/app/570/Dota_2/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex cursor-pointer items-center gap-2.5 h-10 px-5 rounded-sm text-[13px] font-black uppercase tracking-wide text-white transition-all duration-200 flex-shrink-0"
@@ -144,7 +143,7 @@ const Headers = () => {
       </header>
 
       <div className="h-14" />
-    </>
+    </div>
   );
 };
 
