@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import rasm from "../../public/images/image.png";
+import { Menu, X } from "lucide-react";
 
 const gameLinks = [
   { label: "Overview", href: "/game" },
@@ -14,9 +15,10 @@ const languages = ["English", "Русский", "O'zbek"];
 const Headers = () => {
   const [gameOpen, setGameOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   const navClass = ({ isActive }) =>
-    ` flex items-center h-14 px-4 text-[13px] font-bold uppercase tracking-wider transition-colors duration-200 ${
+    `flex items-center h-14 px-4 text-[13px] font-bold uppercase tracking-wider transition-colors duration-200 ${
       isActive
         ? "text-blue-500"
         : "text-[#8eacc5] hover:text-white hover:bg-white/5"
@@ -24,47 +26,15 @@ const Headers = () => {
 
   return (
     <div>
-      <header
-        className="fixed top-0 left-0 right-0 z-50 flex items-center h-24 px-5 gap-0"
-        style={{
-          background: "#000000",
-          borderBottom: "1px solid #1e3a5a",
-          boxShadow: "0 2px 20px rgba(0,0,0,0.5)",
-        }}
-      >
-        <Link to="/Main" className=" w-80">
-          <img src={rasm} alt="Dota 2" />
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center h-20 px-5 bg-black border-b border-[#1e3a5a]">
+
+        {/* Logo */}
+        <Link to="/Main" className="w-40">
+          <img src={rasm} alt="logo" />
         </Link>
 
-        <nav className="flex items-center justify-end text-white flex-1">
-          <div
-            className="relative"
-            onMouseEnter={() => setGameOpen(true)}
-            onMouseLeave={() => setGameOpen(false)}
-          >
-            {gameOpen && (
-              <div
-                className="absolute top-14 left-0 min-w-[180px] py-1.5 z-50"
-                style={{
-                  background: "#0d1f30",
-                  border: "1px solid #1e3a5a",
-                  borderTop: "2px solid #4a8ab5",
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.6)",
-                }}
-              >
-                {gameLinks.map((l) => (
-                  <Link
-                    key={l.href}
-                    to={l.href}
-                    className="block px-4 py-2.5 text-[13px] font-semibold uppercase tracking-wide text-[#8eacc5] hover:text-white hover:bg-[#4a8ab5]/20 transition-colors duration-150"
-                  >
-                    {l.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
+        {/* Desktop menu */}
+        <nav className="hidden lg:flex items-center text-white flex-1 justify-center">
           <NavLink to="/Main" className={navClass}>
             Main
           </NavLink>
@@ -84,9 +54,7 @@ const Headers = () => {
           <NavLink to="/heros" className={navClass}>
             Heroes
           </NavLink>
-        </nav>
 
-        <div className="flex items-center gap-3 ml-auto flex-shrink-0">
           <NavLink to="/Users" className={navClass}>
             Players
           </NavLink>
@@ -94,31 +62,27 @@ const Headers = () => {
           <NavLink to="/live" className={navClass}>
             Live
           </NavLink>
+        </nav>
 
+        {/* Right side */}
+        <div className="hidden lg:flex items-center gap-4">
+
+          {/* Language */}
           <div
-            className="relative hidden md:block"
+            className="relative"
             onMouseEnter={() => setLangOpen(true)}
             onMouseLeave={() => setLangOpen(false)}
           >
-            <button className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide text-[#6a8fa8] hover:text-white px-2.5 py-2 transition-colors duration-200 cursor-pointer">
-              Select language
-              <span className="text-[9px] opacity-60">▼</span>
+            <button className="text-sm text-gray-400 hover:text-white">
+              Language ▼
             </button>
+
             {langOpen && (
-              <div
-                className="absolute top-9 right-0 min-w-[150px] py-1.5 z-50"
-                style={{
-                  background: "#0d1f30",
-                  border: "1px solid #1e3a5a",
-                  borderTop: "2px solid #4a8ab5",
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.6)",
-                }}
-              >
+              <div className="absolute right-0 top-8 bg-[#0d1f30] border border-[#1e3a5a]">
                 {languages.map((lang) => (
                   <button
                     key={lang}
-                    onClick={() => setLangOpen(false)}
-                    className="block w-full text-left px-4 py-2 text-[12px] font-semibold text-[#8eacc5] hover:text-white hover:bg-[#4a8ab5]/20 transition-colors duration-150 cursor-pointer"
+                    className="block px-4 py-2 text-sm text-gray-300 hover:text-white"
                   >
                     {lang}
                   </button>
@@ -127,22 +91,50 @@ const Headers = () => {
             )}
           </div>
 
+          {/* Play button */}
           <a
-          type="https://store.steampowered.com/app/570/Dota_2/"
+            href="https://store.steampowered.com/app/570/Dota_2/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex cursor-pointer items-center gap-2.5 h-10 px-5 rounded-sm text-[13px] font-black uppercase tracking-wide text-white transition-all duration-200 flex-shrink-0"
-            style={{
-              background: "linear-gradient(180deg, #4c9be8 0%, #1a6fbd 100%)",
-              boxShadow: "0 0 12px rgba(76,155,232,0.3)",
-            }}
+            className="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded"
           >
             Play for free
           </a>
         </div>
+
+        {/* Mobile menu button */}
+        <button
+          className="lg:hidden ml-auto text-white"
+          onClick={() => setMobileMenu(!mobileMenu)}
+        >
+          {mobileMenu ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </header>
 
-      <div className="h-14" />
+      {/* Mobile menu */}
+      {mobileMenu && (
+        <div className="lg:hidden fixed top-20 left-0 w-full bg-black text-white flex flex-col items-center gap-4 py-6 z-40">
+
+          <NavLink onClick={()=>setMobileMenu(false)} to="/Main">Main</NavLink>
+          <NavLink onClick={()=>setMobileMenu(false)} to="/Teams">Teams</NavLink>
+          <NavLink onClick={()=>setMobileMenu(false)} to="/Matches">Matches</NavLink>
+          <NavLink onClick={()=>setMobileMenu(false)} to="/Leagues">Schema</NavLink>
+          <NavLink onClick={()=>setMobileMenu(false)} to="/heros">Heroes</NavLink>
+          <NavLink onClick={()=>setMobileMenu(false)} to="/Users">Players</NavLink>
+          <NavLink onClick={()=>setMobileMenu(false)} to="/live">Live</NavLink>
+
+          <a
+            href="https://store.steampowered.com/app/570/Dota_2/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-2 bg-blue-600 rounded"
+          >
+            Play for free
+          </a>
+        </div>
+      )}
+
+      <div className="h-20" />
     </div>
   );
 };

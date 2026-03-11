@@ -49,11 +49,13 @@ function Live() {
           <p className="text-xl text-gray-400 text-center max-w-2xl mx-auto">
             Watch ongoing Dota 2 battles from around the world
           </p>
-          
+
           <div className="flex justify-center mt-6">
             <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full px-6 py-2">
               <span className="text-gray-400">Currently Live: </span>
-              <span className="text-2xl font-bold text-red-500">{matches.length}</span>
+              <span className="text-2xl font-bold text-red-500">
+                {matches.length}
+              </span>
               <span className="text-gray-400 ml-1">matches</span>
             </div>
           </div>
@@ -63,15 +65,14 @@ function Live() {
       {isLoading && (
         <div className="flex flex-col justify-center items-center py-32">
           <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-red-500 mb-4"></div>
-          <p className="text-gray-400 animate-pulse">Fetching live matches...</p>
+          <p className="text-gray-400 animate-pulse">
+            Fetching live matches...
+          </p>
         </div>
       )}
 
       {!isLoading && matches.length === 0 && (
-        <div className="text-center py-32">
-         
-       
-        </div>
+        <div className="text-center py-32"></div>
       )}
 
       {!isLoading && matches.length > 0 && (
@@ -89,7 +90,9 @@ function Live() {
                   <div className="flex justify-between items-start mb-4">
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                      <span className="text-sm text-gray-400">Match #{match.match_id}</span>
+                      <span className="text-sm text-gray-400">
+                        Match #{match.match_id}
+                      </span>
                     </div>
                     <span className="px-3 py-1 bg-red-500/20 text-red-400 rounded-full text-xs font-semibold border border-red-500/30">
                       LIVE
@@ -99,7 +102,11 @@ function Live() {
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex-1 text-center">
                       <div className="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
-                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <svg
+                          className="w-8 h-8 text-white"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
                           <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z" />
                         </svg>
                       </div>
@@ -114,7 +121,11 @@ function Live() {
 
                     <div className="flex-1 text-center">
                       <div className="w-16 h-16 mx-auto mb-2 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
-                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <svg
+                          className="w-8 h-8 text-white"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
                           <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z" />
                         </svg>
                       </div>
@@ -128,19 +139,25 @@ function Live() {
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-400">Score</span>
                       <span className="font-semibold">
-                        <span className="text-green-400">{match.radiant_score || 0}</span>
+                        <span className="text-green-400">
+                          {match.radiant_score || 0}
+                        </span>
                         <span className="text-gray-400 mx-1">:</span>
-                        <span className="text-red-400">{match.dire_score || 0}</span>
+                        <span className="text-red-400">
+                          {match.dire_score || 0}
+                        </span>
                       </span>
                     </div>
-                    
+
                     {match.game_time && (
                       <div className="flex justify-between text-sm">
                         <span className="text-gray-400">Duration</span>
-                        <span className="font-mono text-yellow-400">{formatTime(match.game_time)}</span>
+                        <span className="font-mono text-yellow-400">
+                          {formatTime(match.game_time)}
+                        </span>
                       </div>
                     )}
-                    
+
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-400">Spectators</span>
                       <span className="font-semibold text-blue-400">
@@ -156,7 +173,11 @@ function Live() {
                     className="block w-full text-center bg-gradient-to-r from-red-600 to-yellow-600 hover:from-red-500 hover:to-yellow-500 text-white font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25"
                   >
                     <span className="flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <svg
+                        className="w-5 h-5"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
                         <path d="M2.149 0l-1.612 4.119v16.836h5.731v3.045h3.224l3.045-3.045h4.657l6.269-6.269v-14.686h-21.314zm19.164 13.612l-3.582 3.582h-5.731l-3.045 3.045v-3.045h-4.836v-15.045h17.194v11.463z" />
                       </svg>
                       WATCH LIVE
