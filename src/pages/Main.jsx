@@ -297,8 +297,7 @@ const HeroSection = ({ news }) => (
     </video>
     <div className="absolute inset-0 bg-black/50" />
 
-    {/* Responsive Header */}
-    <header className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between p-3 sm:p-4 md:p-6 text-white">
+=    <header className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between p-3 sm:p-4 md:p-6 text-white">
       <div className="flex items-center gap-1 sm:gap-2">
         <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/logo.png" className="h-6 sm:h-8 md:h-10" alt="dota2" />
       </div>
