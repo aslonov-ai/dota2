@@ -171,7 +171,7 @@ function TeamsInfo() {
       </div>
 
       {show && (
-        <div className="max-w-6xl mx-auto grid grid-cols-3 gap-6 mt-10">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 grid-cols-1 gap-6 mt-10">
           {matches.map((match, index) => (
             <div
               key={index}
@@ -207,7 +207,7 @@ function TeamsInfo() {
       )}
 
       {showPlayer && (
-        <div className="max-w-6xl mx-auto grid grid-cols-3 gap-6 mt-10">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 grid-cols-1 gap-6 mt-10">
           {players.map((player, index) => (
             <div
               key={index}
@@ -241,7 +241,7 @@ function TeamsInfo() {
       )}
 
       {showHeros && (
-        <div className="max-w-6xl mx-auto grid grid-cols-3 gap-6 mt-10">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 grid-cols-1 gap-6 mt-10">
           {heros.map((heros, index) => (
             <div
               key={index}

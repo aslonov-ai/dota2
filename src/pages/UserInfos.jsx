@@ -66,7 +66,7 @@ function UserInfos() {
         ))}
       </div>
 
-      {user && (
+     {user && (
         <div className="lg:max-w-4xl md:max-w-2xl max-w-2xs mx-auto relative h-[680px] z-10">
           <div className="absolute inset-0 z-50 grid grid-cols-3 grid-rows-3 pointer-events-none">
             <div className="peer/tl"></div>
@@ -120,9 +120,9 @@ function UserInfos() {
                     </div>
                     <Link
                       to={"/users"}
-                      className="w-11 h-11 rounded-full bg-gradient-to-br from-violet-400 via-purple-600 to-indigo-800 flex items-center justify-center border-2 border-violet-300/60"
+                      className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-violet-400 via-purple-600 to-indigo-800 flex items-center justify-center border-2 border-violet-300/60 flex-shrink-0"
                     >
-                      <div className="text-2xl font-black text-white">Back</div>
+                      <div className="text-sm sm:text-2xl font-black text-white">Back</div>
                     </Link>
                   </div>
                   <div className="text-center mb-2">
@@ -141,7 +141,7 @@ function UserInfos() {
                       account_id: {user.profile.account_id}
                     </p>
                   </div>
-                  <div className="flex-1 rounded-lg bg-gradient-to-b from-slate-900/80 via-violet-950/60 to-slate-900/90 border border-violet-700/20 p-3">
+                  <div className="flex-1 rounded-lg bg-gradient-to-b from-slate-900/80 via-violet-950/60 to-slate-900/90 border border-violet-700/20 p-3 overflow-y-auto">
                     <div className="flex items-center gap-2 mb-2">
                       <span className="px-2 py-0.5 rounded-full bg-violet-800/60 text-xs text-violet-200 font-semibold">
                         rank_tier: {user.rank_tier ? user.rank_tier : "-"}
@@ -166,37 +166,37 @@ function UserInfos() {
                       </p>
                       </div>
                     )}
-                    <p className="text-sm text-violet-100 mb-2">
+                    <p className="text-sm text-violet-100 mb-2 truncate">
                       <span className="text-pink-400 font-bold italic">
                         avatar---
                       </span>
                       {user.profile.avatar}
                     </p>
-                    <p className="text-sm text-violet-100 mb-2">
+                    <p className="text-sm text-violet-100 mb-2 truncate">
                       <span className="text-pink-400 font-bold italic">
                         avatarfull---
                       </span>
                       {user.profile.avatarfull}
                     </p>
-                    <p className="text-sm text-violet-100 mb-2">
+                    <p className="text-sm text-white mb-2 truncate">
                       <span className="text-pink-400 font-bold italic">
                         avatarmedium---
                       </span>
                       {user.profile.avatarmedium}
                     </p>
-                    <p className="text-sm text-violet-100 mb-2">
+                    <p className="text-sm text-violet-100 mb-2 truncate">
                       <span className="text-pink-400 font-bold italic">
-                        computed_mmr---
+                        rank---
                       </span>
                       {user.computed_mmr}
                     </p>
-                    <p className="text-sm text-violet-100 mb-2">
+                    <p className="text-sm text-violet-100 mb-2 truncate">
                       <span className="text-pink-400 font-bold italic">
                         steamId---
                       </span>
                       {user.profile.steamid}
                     </p>
-                    <p className="text-sm text-violet-100 mb-2">
+                    <p className="text-sm text-violet-100 mb-2 truncate">
                       <span className="text-pink-400 font-bold italic">
                         profileUrl--
                       </span>
