@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import rasm from "../../public/images/image.png";
 import { Menu, X } from "lucide-react";

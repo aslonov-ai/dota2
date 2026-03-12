@@ -6,7 +6,7 @@ import UserInfos from "./pages/UserInfos"
 import Live from "./pages/Live"
 import Teams from "./pages/Teams";
 import Matches from "./pages/Matches";
-import Leagues from "./pages/Leagues";
+import Leagues from "./pages/leagues";
 import HerosPage from "./heroes/HerosPage";
 import ProPLayers from "./pages/ProPLayers";
 import TeamsInfo from "./pages/TeamsInfo";
